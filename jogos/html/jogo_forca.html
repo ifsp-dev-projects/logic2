@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Jogo da Forca</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #121212;
+        }
+
+        .container {
+            background-color: #1f1f1f;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(106, 76, 252, 0.4);
+            padding: 40px;
+            max-width: 400px;
+            margin: auto;
+            text-align: center;
+        }
+
+        h1 {
+            color: #9b6aff;
+            font-weight: 600;
+            font-size: 2.25rem; /* text-3xl */
+            margin-bottom: 0.5rem;
+        }
+
+        p.theme {
+            color: #cccccc;
+            font-size: 1.125rem; /* text-lg */
+            margin-bottom: 1.5rem;
+        }
+
+        pre#boneco {
+            font-family: monospace;
+            white-space: pre;
+            text-align: left;
+            line-height: 1.2;
+            font-size: 1.25rem;
+            color: #6a4cfc;
+            background-color: #2a2a2a;
+            padding: 20px;
+            border-radius: 12px;
+            user-select: none;
+            margin-bottom: 1.5rem;
+        }
+
+        #palavra {
+            font-size: 1.75rem; /* text-2xl */
+            font-weight: 600;
+            color: #9b6aff;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.2em;
+        }
+
+        input#userInput {
+            border-radius: 10px;
+            padding: 12px 20px;
+            width: 100%;
+            font-size: 1rem;
+            color: black;
+            border: none;
+            outline: none;
+            margin-bottom: 1.5rem;
+        }
+
+        button {
+            background-color: #6a4cfc;
+            color: white;
+            font-weight: 600;
+            padding: 12px 30px;
+            border-radius: 30px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #00c6ff;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="text-white min-h-screen flex items-center justify-center px-4">
+    <div class="container">
+        <h1>Jogo da Forca</h1>
+        <p class="theme">Tema da rodada: Desenhos Animados</p>
+
+        <pre id="boneco">
++---+
+|   |
+    |
+    |
+    |
+    |
+======
+        </pre>
+
+        <p id="palavra">_ _ _ _ _</p>
+        <input type="text" id="userInput" placeholder="Digite uma letra" maxlength="1" />
+        <button>Enviar</button>
+    </div>
+</body>
+</html>

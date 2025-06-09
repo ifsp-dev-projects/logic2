@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #121212;
+            color: #eaeaea;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2b1553, #709bdb);
+            padding: 10px 2px;
+            text-align: left;
+            color: white;
+            border-bottom: 3px solid rgba(0, 0, 0, 0.2);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 550;
+            letter-spacing: 2px;
+        }
+
+        .header p {
+            font-size: 1.25rem;
+            margin-top: 10px;
+            font-weight: 400;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 30px;
+            background-color: #1f1f1f;
+            color: white;
+            font-weight: bold;
+        }
+
+        .nav a {
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+
+        .nav a:hover {
+            background-color: #6a4cfc;
+            color: white;
+        }
+
+        .carousel-wrapper {
+            width: 100%;
+            max-width: 1600px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .carousel-wrapper img {
+            width: 100%;
+            max-width: 1600px;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+            object-fit: cover;
+            transition: transform 0.4s ease, opacity 1s ease;
+            opacity: 0;
+        }
+
+        .carousel-wrapper img.fade-in {
+            opacity: 1;
+        }
+
+        .carousel-wrapper img:hover {
+            transform: scale(1.03);
+        }
+
+        .categories {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .category-btn {
+            background-color: #6a4cfc;
+            padding: 15px 30px;
+            border-radius: 50px;
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: background-color 0.3s;
+            font-size: 1.1rem;
+        }
+
+        .category-btn:hover {
+            background-color: #00c6ff;
+        }
+
+        .game-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            padding: 40px;
+        }
+
+        .game-card {
+            background-color: #1f1f1f;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .game-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .game-card h3 {
+            font-size: 1.5rem;
+            background-color: #6a4cfc;
+            padding: 15px 0;
+            margin: 0;
+            color: white;
+        }
+
+        .game-card a {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #6a4cfc;
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 30px;
+            margin: 20px 0;
+            transition: background-color 0.3s;
+        }
+
+        .game-card a:hover {
+            background-color: #00c6ff;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <div
+        class="header flex items-center gap-4 px-6 py-4 bg-gradient-to-r from-indigo-700 via-purple-700 to-pink-600 shadow-lg">
+        <!-- Logo SVG (pode trocar pelo seu caminho de imagem no src) -->
+        <img src="https://cdn-icons-png.flaticon.com/512/2620/2620413.png" alt="Logo"
+            class="w-10 h-10 object-contain" />
+
+        <!-- Título moderno -->
+        <h1 class="text-white font-extrabold text-4xl tracking-wide font-poppins">
+            GAME PORTAL
+        </h1>
+    </div>
+
+
+    <!-- Navigation -->
+    <div class="nav">
+        <a href="#">Home</a>
+        <a href="#">Sobre</a>
+        <a href="#">Contato</a>
+        <a href="#">Categorias</a>
+    </div>
+
+    <!-- Carousel -->
+    <div class="carousel-wrapper">
+        <img id="carousel-image" class="fade-in" src="header1.png" alt="Jogo em destaque">
+    </div>
+
+    <!-- Script para o carrossel -->
+    <script>
+        const images = ["header1.png", "header2.png"];
+        let currentIndex = 0;
+        const img = document.getElementById("carousel-image");
+
+        function showNextImage() {
+            img.classList.remove("fade-in");
+            setTimeout(() => {
+                currentIndex = (currentIndex + 1) % images.length;
+                img.src = images[currentIndex];
+                img.classList.add("fade-in");
+            }, 300); // tempo para transição
+        }
+
+        setInterval(showNextImage, 4000);
+    </script>
+
+    <!-- Categories -->
+    <div class="categories">
+        <button class="category-btn">Ação</button>
+        <button class="category-btn">Estratégia</button>
+        <button class="category-btn">Quiz</button>
+        <button class="category-btn">Clássicos</button>
+    </div>
+
+    <!-- Game Cards Section -->
+    <div class="game-cards">
+        <div class="game-card">
+            <img src="https://cdn.pixabay.com/photo/2015/09/13/13/28/wooden-938275_960_720.jpg" alt="Torre de Hanoi">
+            <h3>Torre de Hanoi</h3>
+            <a href="torre_hanoi.html">Jogar</a>
+        </div>
+        <div class="game-card">
+            <img src="https://cdn.pixabay.com/photo/2017/06/30/13/52/battleship-2456930_960_720.jpg"
+                alt="Batalha Naval">
+            <h3>Batalha Naval</h3>
+            <a href="batalha_naval.html">Jogar</a>
+        </div>
+        <div class="game-card">
+            <img src="https://cdn.pixabay.com/photo/2017/08/30/11/59/quiz-2696949_960_720.jpg" alt="Quiz Interativo">
+            <h3>Quiz Interativo</h3>
+            <a href="quiz.html">Jogar</a>
+        </div>
+        <div class="game-card">
+            <img src="https://cdn.pixabay.com/photo/2020/10/21/10/38/rock-paper-scissors-5678761_960_720.jpg"
+                alt="Pedra, Papel, Tesoura">
+            <h3>Pedra, Papel, Tesoura</h3>
+            <a href="pedra_papel_tesoura.html">Jogar</a>
+        </div>
+        <div class="game-card">
+            <img src="https://cdn.pixabay.com/photo/2016/11/23/18/43/number-1850835_960_720.jpg"
+                alt="Adivinhe o Número">
+            <h3>Adivinhe o Número</h3>
+            <a href="adivinhe_numero.html">Jogar</a>
+        </div>
+        <div class="game-card">
+            <img src="https://cdn.pixabay.com/photo/2016/11/23/18/43/number-1850835_960_720.jpg" alt="Jogo da Forca">
+            <h3>Jogo da Forca </h3>
+            <a href="jogo_forca.html">Jogar</a>
+        </div>
+    </div>
+
+</body>
+
+</html>

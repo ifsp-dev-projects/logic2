@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Quiz Interativo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #121212;
+        }
+
+        .container {
+            background-color: #1f1f1f;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(106, 76, 252, 0.4);
+            padding: 40px;
+            max-width: 480px;
+            margin: auto;
+            text-align: center;
+        }
+
+        h1 {
+            color: #9b6aff;
+            font-weight: 600;
+            font-size: 2.25rem; /* text-3xl */
+            margin-bottom: 0.5rem;
+        }
+
+        p.subtitle {
+            color: #cccccc;
+            font-size: 1.125rem; /* text-lg */
+            margin-bottom: 2rem;
+        }
+
+        #pergunta {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #9b6aff;
+            margin-bottom: 1.5rem;
+        }
+
+        button {
+            background-color: #9b6aff;
+            border-radius: 30px;
+            padding: 12px 0;
+            font-weight: 600;
+            color: white;
+            font-size: 1.125rem;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 1rem;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            user-select: none;
+        }
+
+        button:hover {
+            background-color: #7043c6;
+            transform: scale(1.05);
+        }
+
+        #resultado {
+            margin-top: 2rem;
+            font-size: 1.25rem; /* text-xl */
+            font-weight: 600;
+            color: #9b6aff;
+            min-height: 1.5em;
+        }
+    </style>
+</head>
+<body class="text-white min-h-screen flex items-center justify-center px-4">
+    <div class="container">
+        <h1>Quiz Interativo</h1>
+        <p class="subtitle">Teste seus conhecimentos!</p>
+
+        <p id="pergunta">Qual o menor país do mundo?</p>
+        <button>a) Ilhas Marshall</button>
+        <button>b) Nova Zelândia</button>
+        <button>c) Mônaco</button>
+        <button>d) Vaticano</button>
+
+        <p id="resultado"></p>
+    </div>
+</body>
+</html>

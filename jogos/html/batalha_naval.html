@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Batalha Naval</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #121212;
+        }
+
+        .container {
+            background-color: #1f1f1f;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(106, 76, 252, 0.4);
+            padding: 40px;
+            max-width: 400px;
+            margin: auto;
+            text-align: center;
+        }
+
+        h1 {
+            color: #9b6aff;
+            font-weight: 600;
+            font-size: 2.25rem; /* text-3xl */
+        }
+
+        p.description {
+            margin-top: 1rem;
+            color: #cccccc;
+            font-size: 1.125rem; /* text-lg */
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(7, 40px);
+            grid-template-rows: repeat(7, 40px);
+            gap: 8px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .cell {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            border: 2px solid #6a4cfc;
+            background-color: #2a2a2a;
+            color: white;
+            font-weight: 600;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            user-select: none;
+        }
+
+        .cell:hover {
+            background-color: #6a4cfc;
+            color: #fff;
+        }
+    </style>
+</head>
+<body class="text-white min-h-screen flex items-center justify-center px-4">
+    <div class="container">
+        <h1>Batalha Naval</h1>
+        <p class="description">Clique em uma célula para atacar!</p>
+
+        <div class="grid-container" id="tabuleiro">
+            <script>
+                let letras = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
+                let tabuleiroHTML = '';
+
+                for (let i = 0; i < 7; i++) {
+                    for (let j = 0; j < 7; j++) {
+                        let id = letras[i] + (j + 1);
+                        tabuleiroHTML += `<div class="cell" id="${id}">${id}</div>`;
+                    }
+                }
+
+                document.write(tabuleiroHTML);
+            </script>
+        </div>
+    </div>
+</body>
+</html>

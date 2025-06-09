@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pedra, Papel ou Tesoura</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #121212;
+        }
+
+        .container {
+            background-color: #1f1f1f;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(106, 76, 252, 0.4);
+            padding: 40px;
+            max-width: 400px;
+            margin: auto;
+            text-align: center;
+        }
+
+        h1 {
+            color: #d162d6;
+            font-weight: 600;
+            font-size: 2.25rem; /* text-3xl */
+            margin-bottom: 0.5rem;
+        }
+
+        p.description {
+            color: #cccccc;
+            font-size: 1.125rem; /* text-lg */
+            margin-bottom: 2rem;
+        }
+
+        .btn-group {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        button {
+            background-color: #d162d6;
+            border-radius: 30px;
+            padding: 16px 0;
+            font-weight: 600;
+            color: white;
+            font-size: 1.25rem;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            user-select: none;
+        }
+
+        button:hover {
+            background-color: #8b3ca8;
+            transform: scale(1.05);
+        }
+
+        #resultado {
+            margin-top: 2rem;
+            font-size: 1.25rem; /* text-xl */
+            font-weight: 600;
+            color: #d162d6;
+            min-height: 1.5em;
+        }
+    </style>
+</head>
+<body class="text-white min-h-screen flex items-center justify-center px-4">
+    <div class="container">
+        <h1>Pedra, Papel ou Tesoura</h1>
+        <p class="description">Escolha sua jogada e desafie o computador!</p>
+
+        <div class="btn-group">
+            <button>🪨 Pedra</button>
+            <button>📜 Papel</button>
+            <button>✂️ Tesoura</button>
+        </div>
+
+        <p id="resultado"></p>
+    </div>
+</body>
+</html>

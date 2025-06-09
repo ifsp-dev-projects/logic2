@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adivinhe o Número</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #121212;
+        }
+
+        .guess-container {
+            background-color: #1f1f1f;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(106, 76, 252, 0.4);
+            padding: 40px;
+            max-width: 500px;
+            margin: auto;
+        }
+
+        .guess-btn {
+            background-color: #6a4cfc;
+            color: white;
+            font-weight: bold;
+            padding: 12px 30px;
+            border-radius: 30px;
+            transition: background-color 0.3s ease;
+        }
+
+        .guess-btn:hover {
+            background-color: #00c6ff;
+        }
+
+        .input-style {
+            border-radius: 10px;
+            padding: 12px 20px;
+            width: 100%;
+            margin-top: 15px;
+            color: black;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body class="text-white min-h-screen flex items-center justify-center px-4">
+
+    <div class="guess-container text-center">
+        <h1 class="text-3xl md:text-4xl font-semibold text-purple-400">Adivinhe o Número</h1>
+        <p class="mt-4 text-gray-300 text-lg">Tente adivinhar o número secreto entre 1 e 100!</p>
+
+        <input type="number" id="userInput" class="input-style mt-6 text-black" placeholder="Digite um número">
+
+        <button onclick="checkGuess()" class="mt-6 guess-btn">Enviar</button>
+
+        <p id="feedback" class="mt-6 text-xl font-semibold text-cyan-400"></p>
+    </div>
+
+    <script>
+        const secretNumber = Math.floor(Math.random() * 100) + 1;
+        function checkGuess() {
+            const input = document.getElementById("userInput");
+            const feedback = document.getElementById("feedback");
+            const guess = parseInt(input.value);
+
+            if (isNaN(guess) || guess < 1 || guess > 100) {
+                feedback.textContent = "Por favor, digite um número entre 1 e 100.";
+                return;
+            }
+
+            if (guess === secretNumber) {
+                feedback.textContent = "🎉 Parabéns! Você acertou!";
+            } else if (guess < secretNumber) {
+                feedback.textContent = "🔼 Tente um número maior.";
+            } else {
+                feedback.textContent = "🔽 Tente um número menor.";
+            }
+        }
+    </script>
+</body>
+</html>
