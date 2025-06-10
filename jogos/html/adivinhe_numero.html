@@ -52,31 +52,10 @@
 
         <input type="number" id="userInput" class="input-style mt-6 text-black" placeholder="Digite um número">
 
-        <button onclick="checkGuess()" class="mt-6 guess-btn">Enviar</button>
+        <button class="mt-6 guess-btn">Enviar</button>
 
         <p id="feedback" class="mt-6 text-xl font-semibold text-cyan-400"></p>
     </div>
 
-    <script>
-        const secretNumber = Math.floor(Math.random() * 100) + 1;
-        function checkGuess() {
-            const input = document.getElementById("userInput");
-            const feedback = document.getElementById("feedback");
-            const guess = parseInt(input.value);
-
-            if (isNaN(guess) || guess < 1 || guess > 100) {
-                feedback.textContent = "Por favor, digite um número entre 1 e 100.";
-                return;
-            }
-
-            if (guess === secretNumber) {
-                feedback.textContent = "🎉 Parabéns! Você acertou!";
-            } else if (guess < secretNumber) {
-                feedback.textContent = "🔼 Tente um número maior.";
-            } else {
-                feedback.textContent = "🔽 Tente um número menor.";
-            }
-        }
-    </script>
 </body>
 </html>

@@ -7,7 +7,8 @@
     <title>Game Portal</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -25,11 +26,6 @@
             border-bottom: 3px solid rgba(0, 0, 0, 0.2);
         }
 
-        .header h1 {
-            font-size: 2.5rem;
-            font-weight: 550;
-            letter-spacing: 2px;
-        }
 
         .header p {
             font-size: 1.25rem;
@@ -57,7 +53,7 @@
         }
 
         .nav a:hover {
-            background-color: #6a4cfc;
+            background-color: #342389;
             color: white;
         }
 
@@ -98,7 +94,7 @@
         }
 
         .category-btn {
-            background-color: #6a4cfc;
+            background-color: #432fa5;
             padding: 15px 30px;
             border-radius: 50px;
             color: white;
@@ -109,7 +105,7 @@
         }
 
         .category-btn:hover {
-            background-color: #00c6ff;
+            background-color: #709bdb;
         }
 
         .game-cards {
@@ -129,23 +125,15 @@
         }
 
         .game-card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
+            height: auto;
+            object-fit: contain;
         }
 
-        .game-card h3 {
-            font-size: 1.5rem;
-            background-color: #6a4cfc;
-            padding: 15px 0;
-            margin: 0;
-            color: white;
-        }
 
         .game-card a {
             display: inline-block;
             padding: 12px 25px;
-            background-color: #6a4cfc;
+            background-color: #432fa5;
             color: white;
             font-weight: bold;
             text-decoration: none;
@@ -155,7 +143,7 @@
         }
 
         .game-card a:hover {
-            background-color: #00c6ff;
+            background-color: #709bdb;
         }
     </style>
 </head>
@@ -164,14 +152,7 @@
     <!-- Header -->
     <div
         class="header flex items-center gap-4 px-6 py-4 bg-gradient-to-r from-indigo-700 via-purple-700 to-pink-600 shadow-lg">
-        <!-- Logo SVG (pode trocar pelo seu caminho de imagem no src) -->
-        <img src="https://cdn-icons-png.flaticon.com/512/2620/2620413.png" alt="Logo"
-            class="w-10 h-10 object-contain" />
-
-        <!-- Título moderno -->
-        <h1 class="text-white font-extrabold text-4xl tracking-wide font-poppins">
-            GAME PORTAL
-        </h1>
+        <img src="img/logo.png" alt="Logo" class="w-30 h-20 object-contain" />
     </div>
 
 
@@ -185,12 +166,12 @@
 
     <!-- Carousel -->
     <div class="carousel-wrapper">
-        <img id="carousel-image" class="fade-in" src="header1.png" alt="Jogo em destaque">
+        <img id="carousel-image" class="fade-in" src="img/header4.jpg" alt="Jogo em destaque">
     </div>
 
     <!-- Script para o carrossel -->
     <script>
-        const images = ["header1.png", "header2.png"];
+        const images = ["img/header4.jpg"];
         let currentIndex = 0;
         const img = document.getElementById("carousel-image");
 
@@ -217,36 +198,30 @@
     <!-- Game Cards Section -->
     <div class="game-cards">
         <div class="game-card">
-            <img src="https://cdn.pixabay.com/photo/2015/09/13/13/28/wooden-938275_960_720.jpg" alt="Torre de Hanoi">
-            <h3>Torre de Hanoi</h3>
+            <img src="img/hanoi.png" alt="Torre de Hanoi">
             <a href="torre_hanoi.html">Jogar</a>
         </div>
         <div class="game-card">
-            <img src="https://cdn.pixabay.com/photo/2017/06/30/13/52/battleship-2456930_960_720.jpg"
+            <img src="img/naval.png"
                 alt="Batalha Naval">
-            <h3>Batalha Naval</h3>
             <a href="batalha_naval.html">Jogar</a>
         </div>
         <div class="game-card">
-            <img src="https://cdn.pixabay.com/photo/2017/08/30/11/59/quiz-2696949_960_720.jpg" alt="Quiz Interativo">
-            <h3>Quiz Interativo</h3>
+            <img src="img/quiz.jfif" alt="Quiz Interativo">
             <a href="quiz.html">Jogar</a>
         </div>
         <div class="game-card">
-            <img src="https://cdn.pixabay.com/photo/2020/10/21/10/38/rock-paper-scissors-5678761_960_720.jpg"
+            <img src="img/ppt.png"
                 alt="Pedra, Papel, Tesoura">
-            <h3>Pedra, Papel, Tesoura</h3>
             <a href="pedra_papel_tesoura.html">Jogar</a>
         </div>
         <div class="game-card">
-            <img src="https://cdn.pixabay.com/photo/2016/11/23/18/43/number-1850835_960_720.jpg"
+            <img src="img/guess.png"
                 alt="Adivinhe o Número">
-            <h3>Adivinhe o Número</h3>
             <a href="adivinhe_numero.html">Jogar</a>
         </div>
         <div class="game-card">
-            <img src="https://cdn.pixabay.com/photo/2016/11/23/18/43/number-1850835_960_720.jpg" alt="Jogo da Forca">
-            <h3>Jogo da Forca </h3>
+            <img src="img/forca.png" alt="Jogo da Forca">
             <a href="jogo_forca.html">Jogar</a>
         </div>
     </div>
