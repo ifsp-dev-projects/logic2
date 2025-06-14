@@ -5,34 +5,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Jogo da Forca</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet" />
     <style>
         body {
             font-family: 'Poppins', sans-serif;
             background-color: #121212;
+            color: #eaeaea;
+            margin: 0;
         }
 
-        .container {
-            background-color: #1f1f1f;
-            border-radius: 20px;
-            box-shadow: 0 0 20px rgba(106, 76, 252, 0.4);
-            padding: 40px;
-            max-width: 400px;
-            margin: auto;
+        .gradient-title {
+            font-size: 2rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            background: linear-gradient(170deg, #ffffff, #6a4cfc, #599bff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             text-align: center;
-        }
-
-        h1 {
-            color: #9b6aff;
-            font-weight: 600;
-            font-size: 2.25rem; /* text-3xl */
             margin-bottom: 0.5rem;
         }
 
-        p.theme {
-            color: #cccccc;
-            font-size: 1.125rem; /* text-lg */
-            margin-bottom: 1.5rem;
+        .tag {
+            background-color: #2a2a2a;
+            color: #a78bfa;
+            padding: 4px 10px;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            margin: 0.5rem 0.5rem 0 0;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 24px;
+            color: #709bdb;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .input-box {
+            border-radius: 12px;
+            padding: 12px 20px;
+            width: 100%;
+            font-size: 1rem;
+            color: black;
+            border: none;
+            outline: none;
+        }
+
+        .action-btn {
+            background-color: #6a4cfc;
+            color: white;
+            font-weight: 600;
+            padding: 12px 30px;
+            border-radius: 9999px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            user-select: none;
+        }
+
+        .action-btn:hover {
+            background-color: #00c6ff;
+            transform: scale(1.05);
         }
 
         pre#boneco {
@@ -40,58 +79,30 @@
             white-space: pre;
             text-align: left;
             line-height: 1.2;
-            font-size: 1.25rem;
+            font-size: 1.1rem;
             color: #6a4cfc;
             background-color: #2a2a2a;
             padding: 20px;
             border-radius: 12px;
             user-select: none;
-            margin-bottom: 1.5rem;
-        }
-
-        #palavra {
-            font-size: 1.75rem; /* text-2xl */
-            font-weight: 600;
-            color: #9b6aff;
-            margin-bottom: 1.5rem;
-            letter-spacing: 0.2em;
-        }
-
-        input#userInput {
-            border-radius: 10px;
-            padding: 12px 20px;
-            width: 100%;
-            font-size: 1rem;
-            color: black;
-            border: none;
-            outline: none;
-            margin-bottom: 1.5rem;
-        }
-
-        button {
-            background-color: #6a4cfc;
-            color: white;
-            font-weight: 600;
-            padding: 12px 30px;
-            border-radius: 30px;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            border: none;
-            cursor: pointer;
-            width: 100%;
-        }
-
-        button:hover {
-            background-color: #00c6ff;
-            transform: scale(1.05);
         }
     </style>
 </head>
-<body class="text-white min-h-screen flex items-center justify-center px-4">
-    <div class="container">
-        <h1>Jogo da Forca</h1>
-        <p class="theme">Tema da rodada: Desenhos Animados</p>
 
-        <pre id="boneco">
+<body class="min-h-screen flex justify-center px-4 py-12">
+
+    <div class="grid grid-cols-1 2xl:grid-cols-[2fr_auto] gap-8 w-full max-w-[1400px]">
+
+        <!-- Conteúdo principal -->
+        <main class="bg-[#1f1f1f] rounded-2xl shadow-xl p-8">
+            <h1 class="gradient-title">Jogo da Forca</h1>
+            <p class="text-center text-gray-400 mb-6 text-sm">Adivinhe a palavra antes que seja tarde!</p>
+
+            <p class="text-purple-300 text-center font-semibold mb-6 uppercase">Tema da rodada: Desenhos Animados</p>
+
+            <!-- Boneco -->
+            <div class="flex justify-center mb-6">
+                <pre id="boneco">
 +---+
 |   |
     |
@@ -99,11 +110,51 @@
     |
     |
 ======
-        </pre>
+                </pre>
+            </div>
 
-        <p id="palavra">_ _ _ _ _</p>
-        <input type="text" id="userInput" placeholder="Digite uma letra" maxlength="1" />
-        <button>Enviar</button>
+            <!-- Palavra -->
+            <p id="palavra" class="text-2xl font-bold text-center text-purple-300 tracking-widest mb-6">_ _ _ _ _</p>
+
+            <!-- Input e botão -->
+            <div class="flex flex-col gap-4 max-w-sm mx-auto">
+                <input id="userInput" type="text" maxlength="1" placeholder="Digite uma letra" class="input-box" />
+                <button class="action-btn">Enviar</button>
+            </div>
+
+            <!-- Tags -->
+            <div class="flex flex-wrap justify-center mt-8">
+                <span class="tag">🎯 Palavra Secreta</span>
+                <span class="tag">🧠 Desafio Mental</span>
+                <span class="tag">💡 Individual</span>
+                <span class="tag">⏱️ ~3min</span>
+                <span class="tag">⚙️ Dificuldade: Média</span>
+            </div>
+
+            <div class="text-center mt-8">
+                <a href="index.html" class="back-link">← Voltar para o portal</a>
+            </div>
+        </main>
+
+        <!-- Sugestões -->
+        <section class="w-full mt-12">
+            <h2 class="text-sm font-semibold text-purple-300 mb-4 uppercase tracking-wide text-center">Você também pode gostar:</h2>
+            <div class="flex flex-wrap justify-center gap-6 px-4">
+                <a href="quiz.html" class="flex items-center w-[300px] gap-4 hover:scale-105 transition-transform">
+                    <img src="img/quiz.jfif" alt="Quiz" class="w-[150px] h-[100px] rounded-xl object-cover shadow-md flex-shrink-0" />
+                    <span class="text-sm text-gray-200">Quiz Interativo</span>
+                </a>
+                <a href="batalha_naval.html" class="flex items-center w-[300px] gap-4 hover:scale-105 transition-transform">
+                    <img src="img/naval.png" alt="Batalha Naval" class="w-[150px] h-[100px] rounded-xl object-cover shadow-md flex-shrink-0" />
+                    <span class="text-sm text-gray-200">Batalha Naval</span>
+                </a>
+                <a href="adivinhe_numero.html" class="flex items-center w-[300px] gap-4 hover:scale-105 transition-transform">
+                    <img src="img/guess.png" alt="Adivinhe o Número" class="w-[150px] h-[100px] rounded-xl object-cover shadow-md flex-shrink-0" />
+                    <span class="text-sm text-gray-200">Adivinhe o Número</span>
+                </a>
+            </div>
+        </section>
+
     </div>
 </body>
 </html>

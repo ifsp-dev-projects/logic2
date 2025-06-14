@@ -1,61 +1,131 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Adivinhe o Número</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet" />
     <style>
         body {
             font-family: 'Poppins', sans-serif;
             background-color: #121212;
+            color: #eaeaea;
+            margin: 0;
         }
 
-        .guess-container {
-            background-color: #1f1f1f;
-            border-radius: 20px;
-            box-shadow: 0 0 20px rgba(106, 76, 252, 0.4);
-            padding: 40px;
-            max-width: 500px;
-            margin: auto;
+        .gradient-title {
+            font-size: 2rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, #ffffff, #6a4cfc, #0051cb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+            margin-bottom: 0.5rem;
         }
 
-        .guess-btn {
-            background-color: #6a4cfc;
-            color: white;
-            font-weight: bold;
-            padding: 12px 30px;
-            border-radius: 30px;
-            transition: background-color 0.3s ease;
+        .tag {
+            background-color: #2a2a2a;
+            color: #a78bfa;
+            padding: 4px 10px;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            margin: 0.5rem 0.5rem 0 0;
         }
 
-        .guess-btn:hover {
-            background-color: #00c6ff;
+        .back-link {
+            display: inline-block;
+            margin-top: 24px;
+            color: #709bdb;
+            text-decoration: none;
+            font-weight: 500;
         }
 
-        .input-style {
-            border-radius: 10px;
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .input-box {
+            border-radius: 12px;
             padding: 12px 20px;
             width: 100%;
-            margin-top: 15px;
-            color: black;
             font-size: 1rem;
+            color: black;
+            border: none;
+            outline: none;
+        }
+
+        .action-btn {
+            background-color: #6a4cfc;
+            color: white;
+            font-weight: 600;
+            padding: 12px 30px;
+            border-radius: 9999px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            user-select: none;
+        }
+
+        .action-btn:hover {
+            background-color: #00c6ff;
+            transform: scale(1.05);
         }
     </style>
 </head>
-<body class="text-white min-h-screen flex items-center justify-center px-4">
 
-    <div class="guess-container text-center">
-        <h1 class="text-3xl md:text-4xl font-semibold text-purple-400">Adivinhe o Número</h1>
-        <p class="mt-4 text-gray-300 text-lg">Tente adivinhar o número secreto entre 1 e 100!</p>
+<body class="min-h-screen flex justify-center px-4 py-12">
 
-        <input type="number" id="userInput" class="input-style mt-6 text-black" placeholder="Digite um número">
+    <div class="grid grid-cols-1 2xl:grid-cols-[2fr_auto] gap-8 w-full max-w-[1400px]">
 
-        <button class="mt-6 guess-btn">Enviar</button>
+        <!-- Conteúdo principal -->
+        <main class="bg-[#1f1f1f] rounded-2xl shadow-xl p-8">
+            <h1 class="gradient-title">Adivinhe o Número</h1>
+            <p class="text-center text-gray-400 mb-6 text-sm">Tente acertar o número secreto entre <span class="text-purple-400 font-semibold">1</span> e <span class="text-purple-400 font-semibold">100</span>!</p>
 
-        <p id="feedback" class="mt-6 text-xl font-semibold text-cyan-400"></p>
+            <!-- Entrada e feedback -->
+            <div class="flex flex-col gap-4 max-w-sm mx-auto">
+                <input id="userInput" type="number" placeholder="Digite um número" class="input-box" />
+                <button class="action-btn">Enviar</button>
+            </div>
+
+            <p id="feedback" class="mt-6 text-xl font-semibold text-center text-cyan-400"></p>
+
+            <!-- Tags -->
+            <div class="flex flex-wrap justify-center mt-8">
+                <span class="tag">🎯 Desafio Numérico</span>
+                <span class="tag">🧠 Raciocínio</span>
+                <span class="tag">💡 Individual</span>
+                <span class="tag">⏱️ ~2min</span>
+                <span class="tag">⚙️ Dificuldade: Fácil</span>
+            </div>
+
+            <div class="text-center mt-8">
+                <a href="index.html" class="back-link">← Voltar para o portal</a>
+            </div>
+        </main>
+
+        <!-- Sugestões -->
+        <section class="w-full mt-12">
+            <h2 class="text-sm font-semibold text-purple-300 mb-4 uppercase tracking-wide text-center">Você também pode gostar:</h2>
+            <div class="flex flex-wrap justify-center gap-6 px-4">
+                <a href="quiz.html" class="flex items-center w-[300px] gap-4 hover:scale-105 transition-transform">
+                    <img src="img/quiz.jfif" alt="Quiz" class="w-[150px] h-[100px] rounded-xl object-cover shadow-md flex-shrink-0" />
+                    <span class="text-sm text-gray-200">Quiz Interativo</span>
+                </a>
+                <a href="pedra_papel_tesoura.html" class="flex items-center w-[300px] gap-4 hover:scale-105 transition-transform">
+                    <img src="img/ppt.png" alt="Batalha Naval" class="w-[150px] h-[100px] rounded-xl object-cover shadow-md flex-shrink-0" />
+                    <span class="text-sm text-gray-200">Pedra, Papel ou Tesoura</span>
+                </a>
+                <a href="jogo_forca.html" class="flex items-center w-[300px] gap-4 hover:scale-105 transition-transform">
+                    <img src="img/forca.png" alt="Jogo da Forca" class="w-[150px] h-[100px] rounded-xl object-cover shadow-md flex-shrink-0" />
+                    <span class="text-sm text-gray-200">Jogo da Forca</span>
+                </a>
+            </div>
+        </section>
+
     </div>
-
 </body>
 </html>

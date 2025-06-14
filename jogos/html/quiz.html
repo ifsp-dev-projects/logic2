@@ -1,88 +1,139 @@
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Quiz Interativo</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #121212;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quiz Interativo</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #121212;
+      color: #eaeaea;
+      margin: 0;
+    }
 
-        .container {
-            background-color: #1f1f1f;
-            border-radius: 20px;
-            box-shadow: 0 0 20px rgba(106, 76, 252, 0.4);
-            padding: 40px;
-            max-width: 480px;
-            margin: auto;
-            text-align: center;
-        }
+    .gradient-title {
+      font-size: 2rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      background: linear-gradient(140deg, #ffffff, #6c4eff, #709bdb);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
 
-        h1 {
-            color: #9b6aff;
-            font-weight: 600;
-            font-size: 2.25rem; /* text-3xl */
-            margin-bottom: 0.5rem;
-        }
+    .quiz-btn {
+      background-color: #1b2a40;
+      border: 2px solid #4b68ff;
+      border-radius: 9999px;
+      padding: 12px 20px;
+      font-weight: 600;
+      font-size: 0.875rem;
+      color: white;
+      width: 100%;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      user-select: none;
+    }
 
-        p.subtitle {
-            color: #cccccc;
-            font-size: 1.125rem; /* text-lg */
-            margin-bottom: 2rem;
-        }
+    .quiz-btn:hover {
+      background-color: #325dff;
+      transform: scale(1.05);
+    }
 
-        #pergunta {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #9b6aff;
-            margin-bottom: 1.5rem;
-        }
+    .tag {
+      background-color: #2a2a2a;
+      color: #a78bfa;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      margin-right: 0.5rem;
+      margin-top: 0.5rem;
+    }
 
-        button {
-            background-color: #9b6aff;
-            border-radius: 30px;
-            padding: 12px 0;
-            font-weight: 600;
-            color: white;
-            font-size: 1.125rem;
-            border: none;
-            cursor: pointer;
-            width: 100%;
-            margin-top: 1rem;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            user-select: none;
-        }
+    .back-link {
+      display: inline-block;
+      margin-top: 24px;
+      color: #709bdb;
+      text-decoration: none;
+      font-weight: 500;
+    }
 
-        button:hover {
-            background-color: #7043c6;
-            transform: scale(1.05);
-        }
-
-        #resultado {
-            margin-top: 2rem;
-            font-size: 1.25rem; /* text-xl */
-            font-weight: 600;
-            color: #9b6aff;
-            min-height: 1.5em;
-        }
-    </style>
+    .back-link:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
-<body class="text-white min-h-screen flex items-center justify-center px-4">
-    <div class="container">
-        <h1>Quiz Interativo</h1>
-        <p class="subtitle">Teste seus conhecimentos!</p>
 
-        <p id="pergunta">Qual o menor país do mundo?</p>
-        <button>a) Ilhas Marshall</button>
-        <button>b) Nova Zelândia</button>
-        <button>c) Mônaco</button>
-        <button>d) Vaticano</button>
+<body class="min-h-screen flex justify-center px-4 py-12">
 
-        <p id="resultado"></p>
-    </div>
+  <div class="grid grid-cols-1 2xl:grid-cols-[2fr_auto] gap-8 w-full max-w-[1400px]">
+
+    <!-- Conteúdo Principal -->
+    <main class="bg-[#1f1f1f] rounded-2xl shadow-xl p-8">
+      <h1 class="gradient-title">Quiz Interativo</h1>
+      <p class="text-center text-gray-400 mb-6 text-sm">Teste seus conhecimentos com perguntas rápidas e divertidas!</p>
+
+      <!-- Pergunta -->
+      <div class="text-center mb-6">
+        <p id="pergunta" class="text-purple-300 font-semibold text-lg mb-4">
+          Qual o menor país do mundo?
+        </p>
+
+        <!-- Botões de resposta -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <button class="quiz-btn">a) Ilhas Marshall</button>
+          <button class="quiz-btn">b) Nova Zelândia</button>
+          <button class="quiz-btn">c) Mônaco</button>
+          <button class="quiz-btn">d) Vaticano</button>
+        </div>
+
+        <!-- Resultado -->
+        <p id="resultado" class="text-purple-400 font-semibold text-lg mt-6 min-h-[1.5em]"></p>
+      </div>
+
+      <!-- Tags -->
+      <div class="flex flex-wrap justify-center">
+        <span class="tag">🧠 Conhecimento Geral</span>
+        <span class="tag">⏱️ ~1min</span>
+        <span class="tag">🎓 Educativo</span>
+      </div>
+
+      <!-- Voltar -->
+      <div class="text-center mt-8">
+        <a href="index.html" class="back-link">← Voltar para o portal</a>
+      </div>
+    </main>
+
+    <!-- Seção Lateral -->
+    <section class="w-full mt-12">
+      <h2 class="text-sm font-semibold text-purple-300 mb-4 uppercase tracking-wide text-center">
+        Você também pode gostar:
+      </h2>
+      <div class="flex flex-wrap justify-center gap-6 px-4">
+        <a href="batalha_naval.html" class="flex items-center w-[300px] gap-4 hover:scale-105 transition-transform">
+          <img src="img/naval.png" alt="Batalha Naval"
+            class="w-[150px] h-[100px] rounded-xl object-cover shadow-md flex-shrink-0" />
+          <span class="text-sm text-gray-200">Batalha Naval</span>
+        </a>
+        <a href="torre_hanoi.html" class="flex items-center w-[300px] gap-4 hover:scale-105 transition-transform">
+          <img src="img/hanoi.png" alt="Torre de Hanói"
+            class="w-[150px] h-[100px] rounded-xl object-cover shadow-md flex-shrink-0" />
+          <span class="text-sm text-gray-200">Torre de Hanói</span>
+        </a>
+        <a href="adivinhe_numero.html" class="flex items-center w-[300px] gap-4 hover:scale-105 transition-transform">
+          <img src="img/guess.png" alt="Adivinha o Número"
+            class="w-[150px] h-[100px] rounded-xl object-cover shadow-md flex-shrink-0" />
+          <span class="text-sm text-gray-200">Adivinha o Número</span>
+        </a>
+      </div>
+    </section>
+  </div>
+
 </body>
+
 </html>

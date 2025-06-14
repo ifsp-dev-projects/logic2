@@ -1,129 +1,191 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Torre de Hanói</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #121212;
-            color: white;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Torre de Hanói</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #121212;
+      color: #eaeaea;
+      margin: 0;
+    }
 
-        .container {
-            background-color: #1f1f1f;
-            border-radius: 20px;
-            box-shadow: 0 0 20px rgba(106, 76, 252, 0.4);
-            padding: 40px;
-            max-width: 600px;
-            width: 100%;
-            text-align: center;
-        }
+    .container {
+      background-color: #1f1f1f;
+      border-radius: 1.5rem;
+      box-shadow: 0 0 20px rgba(106, 76, 252, 0.4);
+      padding: 40px;
+      max-width: 800px;
+      width: 100%;
+      text-align: center;
+      margin: auto;
+    }
 
-        h1 {
-            font-size: 2.5rem; /* text-4xl */
-            font-weight: 600;
-            color: #9b6aff;
-            margin-bottom: 0.5rem;
-        }
+    .gradient-title {
+      font-size: 2rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      background: linear-gradient(130deg, #ffffff, #7155ff, #709bdb);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+    }
 
-        p.description {
-            font-size: 1.125rem; /* text-lg */
-            color: #ccc;
-            margin-bottom: 2rem;
-        }
+    .description {
+      font-size: 1.125rem;
+      color: #ccc;
+      margin-bottom: 2rem;
+    }
 
-        .torres-container {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-bottom: 2rem;
-        }
+    .torres-container {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
 
-        .torre {
-            border: 2px solid #9b6aff;
-            width: 100px;
-            height: 220px;
-            display: flex;
-            flex-direction: column-reverse;
-            align-items: center;
-            padding-bottom: 10px;
-            border-radius: 10px;
-            color: #9b6aff;
-            font-weight: 600;
-            position: relative;
-            user-select: none;
-        }
+    .torre {
+      width: 100px;
+      height: 220px;
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: center;
+      padding-bottom: 10px;
+      border-radius: 10px;
+      position: relative;
+      user-select: none;
+      background-color: #292929;
+    }
 
-        .disco {
-            background-color: #9b6aff;
-            border-radius: 6px;
-            margin: 3px 0;
-        }
+    .torre-label {
+      position: absolute;
+      top: -24px;
+      color: #9b6aff;
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
 
-        .disco1 {
-            width: 40px;
-            height: 20px;
-        }
+    .disco {
+      border-radius: 6px;
+      margin: 4px 0;
+      height: 20px;
+    }
 
-        .disco2 {
-            width: 60px;
-            height: 20px;
-        }
+    .disco1 {
+      width: 40px;
+      background-color: #ff7edb; /* rosa */
+    }
 
-        .disco3 {
-            width: 80px;
-            height: 20px;
-        }
+    .disco2 {
+      width: 60px;
+      background-color: #7edfff; /* azul claro */
+    }
 
-        button {
-            background-color: #9b6aff;
-            color: white;
-            font-weight: 600;
-            padding: 14px 40px;
-            border-radius: 30px;
-            border: none;
-            cursor: pointer;
-            font-size: 1.125rem;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            user-select: none;
-        }
+    .disco3 {
+      width: 80px;
+      background-color: #c47eff; /* roxo claro */
+    }
 
-        button:hover {
-            background-color: #7043c6;
-            transform: scale(1.05);
-        }
-    </style>
+    .tag {
+      background-color: #2a2a2a;
+      color: #a78bfa;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      margin: 0.25rem;
+    }
+
+    button {
+      background-color: #9b6aff;
+      color: white;
+      font-weight: 600;
+      padding: 14px 40px;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+      font-size: 1.125rem;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      user-select: none;
+    }
+
+    button:hover {
+      background-color: #7043c6;
+      transform: scale(1.05);
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 20px;
+      color: #709bdb;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
-<body>
-    <div class="container">
-        <h1>Torre de Hanói</h1>
-        <p class="description">Objetivo: Mover todos os discos da torre A para a torre C.</p>
 
-        <div class="torres-container">
-            <div class="torre" id="torreA">
-                <div class="disco disco3"></div>
-                <div class="disco disco2"></div>
-                <div class="disco disco1"></div>
-                <span style="position:absolute; bottom: 5px;">A</span>
-            </div>
-            <div class="torre" id="torreB">
-                <span style="position:absolute; bottom: 5px;">B</span>
-            </div>
-            <div class="torre" id="torreC">
-                <span style="position:absolute; bottom: 5px;">C</span>
-            </div>
-        </div>
+<body class="min-h-screen flex flex-col items-center justify-center px-4 py-12">
+  <div class="container">
+    <h1 class="gradient-title">Torre de Hanói</h1>
+    <p class="description">Objetivo: Mover todos os discos da torre A para a torre C.</p>
 
-        <button>Mover Disco</button>
+    <div class="torres-container">
+      <div class="torre" id="torreA">
+        <span class="torre-label">A</span>
+        <div class="disco disco3"></div>
+        <div class="disco disco2"></div>
+        <div class="disco disco1"></div>
+      </div>
+      <div class="torre" id="torreB">
+        <span class="torre-label">B</span>
+      </div>
+      <div class="torre" id="torreC">
+        <span class="torre-label">C</span>
+      </div>
     </div>
+
+    <button>Mover Disco</button>
+
+    <div class="flex flex-wrap justify-center mt-4">
+      <span class="tag">🧠 Raciocínio Lógico</span>
+      <span class="tag">🟪 Puzzle</span>
+      <span class="tag">⏳ Desafio Clássico</span>
+      <span class="tag">⏱️ ~5min</span>
+      <span class="tag">⚙️ Dificuldade: Média</span>
+    </div>
+
+    <div class="text-center mt-8">
+      <a href="index.html" class="back-link">← Voltar para o portal</a>
+    </div>
+  </div>
+
+  <section class="w-full max-w-[1200px] mt-12 px-4">
+    <h2 class="text-sm font-semibold text-purple-300 mb-4 uppercase tracking-wide text-center">Você também pode gostar:</h2>
+    <div class="flex flex-wrap justify-center gap-6">
+      <a href="batalha_naval.html" class="flex items-center w-[300px] gap-4 hover:scale-105 transition-transform">
+        <img src="img/naval.png" alt="Batalha Naval"
+          class="w-[150px] h-[100px] rounded-xl object-cover shadow-md flex-shrink-0" />
+        <span class="text-sm text-gray-200">Batalha Naval</span>
+      </a>
+      <a href="pedra_papel_tesoura.html" class="flex items-center w-[300px] gap-4 hover:scale-105 transition-transform">
+        <img src="img/ppt.png" alt="Pedra, Papel e Tesoura"
+          class="w-[150px] h-[100px] rounded-xl object-cover shadow-md flex-shrink-0" />
+        <span class="text-sm text-gray-200">Pedra, Papel e Tesoura</span>
+      </a>
+      <a href="adivinhe_numero.html" class="flex items-center w-[300px] gap-4 hover:scale-105 transition-transform">
+        <img src="img/guess.png" alt="Adivinha o Número"
+          class="w-[150px] h-[100px] rounded-xl object-cover shadow-md flex-shrink-0" />
+        <span class="text-sm text-gray-200">Adivinha o Número</span>
+      </a>
+    </div>
+  </section>
 </body>
 </html>

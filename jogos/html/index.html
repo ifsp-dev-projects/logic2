@@ -17,6 +17,8 @@
             color: #eaeaea;
             margin: 0;
             padding: 0;
+            scroll-behavior: smooth;
+            /* Scroll suave */
         }
 
         .header {
@@ -26,7 +28,6 @@
             color: white;
             border-bottom: 3px solid rgba(0, 0, 0, 0.2);
         }
-
 
         .header p {
             font-size: 1.25rem;
@@ -51,6 +52,7 @@
             border-radius: 8px;
             transition: all 0.3s ease;
             font-size: 1.1rem;
+            cursor: pointer;
         }
 
         .nav a:hover {
@@ -58,14 +60,17 @@
             color: white;
         }
 
-        .carousel-wrapper {
+        .carousel-wrapper img {
             width: 100%;
             max-width: 1600px;
-            margin: 40px auto;
-            padding: 0 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            max-height: 500px;
+            /* limite de altura para o carrossel */
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+            object-fit: cover;
+            transition: transform 0.4s ease, opacity 1s ease;
+            opacity: 0;
         }
 
         .carousel-wrapper img {
@@ -87,11 +92,13 @@
             transform: scale(1.03);
         }
 
+        /* Categoria SPA menu */
         .categories {
             display: flex;
-            gap: 20px;
             justify-content: center;
+            gap: 20px;
             margin-top: 40px;
+            margin-bottom: 40px;
         }
 
         .category-btn {
@@ -103,17 +110,27 @@
             text-transform: uppercase;
             transition: background-color 0.3s;
             font-size: 1.1rem;
+            cursor: pointer;
+            user-select: none;
         }
 
         .category-btn:hover {
             background-color: #709bdb;
         }
 
+        .category-btn.active {
+            background-color: #709bdb;
+            cursor: default;
+        }
+
+        /* Game cards */
         .game-cards {
+            max-width: 1200px;
+            margin: 0 auto 60px;
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
-            padding: 40px;
+            padding: 0 20px;
         }
 
         .game-card {
@@ -126,10 +143,15 @@
         }
 
         .game-card img {
+            width: 100%;
             height: auto;
             object-fit: contain;
+            border-bottom: 1px solid #432fa5;
         }
 
+        .game-card:hover {
+            transform: scale(1.03);
+        }
 
         .game-card a {
             display: inline-block;
@@ -146,6 +168,36 @@
         .game-card a:hover {
             background-color: #709bdb;
         }
+
+        /* Novas seções para Sobre e Contato */
+        section {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        h2 {
+            font-weight: 600;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #709bdb;
+        }
+
+        p {
+            font-weight: 400;
+            line-height: 1.6;
+            font-size: 0.8rem;
+
+        }
+
+        footer {
+            background-color: #1f1f1f;
+            color: #999;
+            padding: 20px 10px;
+            text-align: center;
+            margin-top: 60px;
+            font-size: 0.9rem;
+        }
     </style>
 </head>
 
@@ -153,22 +205,75 @@
     <!-- Header -->
     <div
         class="header flex items-center gap-4 px-6 py-4 bg-gradient-to-r from-indigo-700 via-purple-700 to-pink-600 shadow-lg">
-        <img src="img/logo.png" alt="Logo" class="w-30 h-20 object-contain" />
+        <a href="#"><img src="img/logo.png" alt="Logo" class="w-30 h-20 object-contain" /></a>
     </div>
-
 
     <!-- Navigation -->
     <div class="nav">
-        <a href="#">Home</a>
-        <a href="#">Sobre</a>
-        <a href="#">Contato</a>
-        <a href="#">Categorias</a>
+        <a href="#home">Home</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#contato">Contato</a>
+        <a href="#categorias">Categorias</a>
     </div>
 
-    <!-- Carousel -->
-    <div class="carousel-wrapper">
-        <img id="carousel-image" class="fade-in" src="img/header4.jpg" alt="Jogo em destaque">
+    <div class="carousel-wrapper" id="home">
+        <img id="carousel-image" class="fade-in" src="img/header4.jpg" alt="Jogo em destaque" />
     </div>
+
+    <!-- Seção de Categorias com ajustes -->
+    <section id="categorias" style="max-width: 1200px; margin: 50px auto 0; padding: 0 20px;">
+        <div class="categories">
+            <button class="category-btn active" data-cat="todos">Todos</button>
+            <button class="category-btn" data-cat="acao">Ação</button>
+            <button class="category-btn" data-cat="estrategia">Estratégia</button>
+            <button class="category-btn" data-cat="classicos">Clássicos</button>
+        </div>
+
+        <div class="game-cards">
+            <div class="game-card" data-categories="classicos acao">
+                <img src="img/naval.png" alt="Batalha Naval" />
+                <a href="batalha_naval.html">Jogar</a>
+            </div>
+            <div class="game-card" data-categories="classicos acao">
+                <img src="img/ppt.png" alt="Pedra, Papel, Tesoura" />
+                <a href="pedra_papel_tesoura.html">Jogar</a>
+            </div>
+            <div class="game-card" data-categories="estrategia">
+                <img src="img/quiz.jfif" alt="Quiz Interativo" />
+                <a href="quiz.html">Jogar</a>
+            </div>
+            <div class="game-card" data-categories="estrategia">
+                <img src="img/hanoi.png" alt="Torre de Hanoi" />
+                <a href="torre_hanoi.html">Jogar</a>
+            </div>
+            <div class="game-card" data-categories="classicos">
+                <img src="img/guess.png" alt="Adivinhe o Número" />
+                <a href="adivinhe_numero.html">Jogar</a>
+            </div>
+            <div class="game-card" data-categories="estrategia acao">
+                <img src="img/forca.png" alt="Jogo da Forca" />
+                <a href="jogo_forca.html">Jogar</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre -->
+    <section id="sobre">
+        <h2>Sobre</h2>
+        <p>Este é um projeto acadêmico sem fins lucrativos, desenvolvido para fins educacionais. O portal oferece jogos
+            diversos para entretenimento e aprendizado.</p>
+    </section>
+
+    <!-- Contato -->
+    <section id="contato">
+        <h2>Contato</h2>
+        <p>Quer entrar em contato? Me ache no GitHub:</p>
+        <p><a href="https://github.com/anacmoser" target="_blank" style="color:#709bdb;">github.com/anacmoser</a></p>
+    </section>
+
+    <footer>
+        <p>© 2025 Game Portal. Todos os direitos reservados.</p>
+    </footer>
 
     <!-- Script para o carrossel -->
     <script>
@@ -182,51 +287,32 @@
                 currentIndex = (currentIndex + 1) % images.length;
                 img.src = images[currentIndex];
                 img.classList.add("fade-in");
-            }, 300); // tempo para transição
+            }, 300);
         }
 
         setInterval(showNextImage, 4000);
+
+        // Atualizado: categorias
+        const buttons = document.querySelectorAll('.category-btn');
+        const cards = document.querySelectorAll('.game-card');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                buttons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                const category = button.dataset.cat;
+
+                cards.forEach(card => {
+                    const cats = card.dataset.categories.split(' ');
+                    if (category === 'todos' || cats.includes(category)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                document.getElementById('categorias').scrollIntoView({ behavior: 'smooth' });
+            });
+        });
     </script>
-
-    <!-- Categories -->
-    <div class="categories">
-        <button class="category-btn">Ação</button>
-        <button class="category-btn">Estratégia</button>
-        <button class="category-btn">Quiz</button>
-        <button class="category-btn">Clássicos</button>
-    </div>
-
-    <!-- Game Cards Section -->
-    <div class="game-cards">
-        <div class="game-card">
-            <img src="img/hanoi.png" alt="Torre de Hanoi">
-            <a href="torre_hanoi.html">Jogar</a>
-        </div>
-        <div class="game-card">
-            <img src="img/naval.png" alt="Batalha Naval">
-            <a href="batalha_naval.html">Jogar</a>
-        </div>
-        <div class="game-card">
-            <img src="img/quiz.jfif" alt="Quiz Interativo">
-            <a href="quiz.html">Jogar</a>
-        </div>
-        <div class="game-card">
-            <img src="img/ppt.png" alt="Pedra, Papel, Tesoura">
-            <a href="pedra_papel_tesoura.html">Jogar</a>
-        </div>
-        <div class="game-card">
-            <img src="img/guess.png" alt="Adivinhe o Número">
-            <a href="adivinhe_numero.html">Jogar</a>
-        </div>
-        <div class="game-card">
-            <img src="img/forca.png" alt="Jogo da Forca">
-            <a href="jogo_forca.html">Jogar</a>
-        </div>
-    </div>
-    <footer class="bg-gray-900 text-white py-4 text-center mt-10">
-        <p class="text-sm">© 2025 Game Portal. Todos os direitos reservados.</p>
-    </footer>
-
 </body>
-
-</html>

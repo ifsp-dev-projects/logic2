@@ -1,91 +1,143 @@
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Batalha Naval</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet" />
     <style>
         body {
             font-family: 'Poppins', sans-serif;
             background-color: #121212;
-        }
-
-        .container {
-            background-color: #1f1f1f;
-            border-radius: 20px;
-            box-shadow: 0 0 20px rgba(106, 76, 252, 0.4);
-            padding: 40px;
-            max-width: 400px;
-            margin: auto;
-            text-align: center;
-        }
-
-        h1 {
-            color: #9b6aff;
-            font-weight: 600;
-            font-size: 2.25rem; /* text-3xl */
-        }
-
-        p.description {
-            margin-top: 1rem;
-            color: #cccccc;
-            font-size: 1.125rem; /* text-lg */
-        }
-
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(7, 40px);
-            grid-template-rows: repeat(7, 40px);
-            gap: 8px;
-            justify-content: center;
-            margin-top: 30px;
+            color: #eaeaea;
+            margin: 0;
         }
 
         .cell {
-            width: 40px;
-            height: 40px;
+            width: 45px;
+            height: 45px;
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 8px;
-            border: 2px solid #6a4cfc;
-            background-color: #2a2a2a;
+            border: 2px solid #4b68ff;
+            background-color: #1b2a40;
             color: white;
             font-weight: 600;
             font-size: 0.875rem;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s, transform 0.2s;
             user-select: none;
         }
 
         .cell:hover {
-            background-color: #6a4cfc;
-            color: #fff;
+            background-color: #325dff;
+            transform: scale(1.05);
+        }
+
+        .tag {
+            background-color: #2a2a2a;
+            color: #a78bfa;
+            padding: 4px 10px;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            margin-right: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #709bdb;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .gradient-title {
+            font-size: 2rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, #ffffff, #6a4cfc, #6ba6ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+            margin-bottom: 0.5rem;
         }
     </style>
 </head>
-<body class="text-white min-h-screen flex items-center justify-center px-4">
-    <div class="container">
-        <h1>Batalha Naval</h1>
-        <p class="description">Clique em uma célula para atacar!</p>
 
-        <div class="grid-container" id="tabuleiro">
-            <script>
-                let letras = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
-                let tabuleiroHTML = '';
+<body class="min-h-screen flex justify-center px-4 py-12">
 
-                for (let i = 0; i < 7; i++) {
-                    for (let j = 0; j < 7; j++) {
-                        let id = letras[i] + (j + 1);
-                        tabuleiroHTML += `<div class="cell" id="${id}">${id}</div>`;
-                    }
-                }
+    <div class="grid grid-cols-1 2xl:grid-cols-[2fr_auto] gap-8 w-full max-w-[1400px]">
 
-                document.write(tabuleiroHTML);
-            </script>
-        </div>
+        <!-- Conteúdo principal -->
+        <main class="bg-[#1f1f1f] rounded-2xl shadow-xl p-8">
+            <h1 class="gradient-title">Batalha Naval</h1>
+            <p class="text-center text-gray-400 mb-6 text-sm">Localize e destrua os navios inimigos nesta clássica
+                batalha de estratégia!</p>
+
+            <!-- Tabuleiro -->
+            <div class="flex justify-center mb-6">
+                <div class="grid grid-cols-7 gap-2" id="tabuleiro">
+                    <script>
+                        const letras = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
+                        let tabuleiroHTML = '';
+
+                        for (let i = 0; i < 7; i++) {
+                            for (let j = 0; j < 7; j++) {
+                                let id = letras[i] + (j + 1);
+                                tabuleiroHTML += `<div class="cell" id="${id}">${id}</div>`;
+                            }
+                        }
+
+                        document.write(tabuleiroHTML);
+                    </script>
+                </div>
+            </div>
+
+            <!-- Tags -->
+            <div class="flex flex-wrap justify-center">
+                <span class="tag">🎯 Estratégia</span>
+                <span class="tag">🧠 Clássico</span>
+                <span class="tag">💡 Individual</span>
+                <span class="tag">⏱️ ~5min</span>
+                <span class="tag">⚙️ Dificuldade: Média</span>
+            </div>
+
+            <div class="text-center mt-8">
+                <a href="index.html" class="back-link">← Voltar para o portal</a>
+            </div>
+        </main>
+
+        <section class="w-full mt-12">
+            <h2 class="text-sm font-semibold text-purple-300 mb-4 uppercase tracking-wide text-center">Você também pode
+                gostar:</h2>
+            <div class="flex flex-wrap justify-center gap-6 px-4">
+                <a href="pedra_papel_tesoura.html" class="flex items-center w-[300px] gap-4 hover:scale-105 transition-transform">
+                    <img src="img/ppt.png" alt="PPT"
+                        class="w-[150px] h-[100px] rounded-xl object-cover shadow-md flex-shrink-0" />
+                    <span class="text-sm text-gray-200">Pedra, Papel e Tesoura</span>
+                </a>
+                <a href="torre_hanoi.html" class="flex items-center w-[300px] gap-4 hover:scale-105 transition-transform">
+                    <img src="img/hanoi.png" alt="Torre de Hanói"
+                        class="w-[150px] h-[100px] rounded-xl object-cover shadow-md flex-shrink-0" />
+                    <span class="text-sm text-gray-200">Torre de Hanói</span>
+                </a>
+                <a href="adivinhe_numero.html" class="flex items-center w-[300px] gap-4 hover:scale-105 transition-transform">
+                    <img src="img/guess.png" alt="Adivinha o Número"
+                        class="w-[150px] h-[100px] rounded-xl object-cover shadow-md flex-shrink-0" />
+                    <span class="text-sm text-gray-200">Adivinha o Número</span>
+                </a>
+            </div>
+        </section>
+
     </div>
 </body>
+
 </html>
