@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <title>Página inicial</title>
+</head>
+<body>
+    {% if logado %}
+        <h2> Confira nossos produtos:</h2>
+        <ul>
+            {% for produto in produtos %}
+                <li>{{ produto }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p> Por favor, faça login para ver os produtos</p>
+    {% endif %}
+</body>
+</html>
