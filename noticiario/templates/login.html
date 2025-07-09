@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - Portal de Notícias</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #f7f7f7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      color: #1e1e1e;
+    }
+
+    .login-container {
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      width: 100%;
+      max-width: 420px;
+      overflow: hidden;
+    }
+
+    .login-header {
+      background-color: #ffffff;
+      padding: 30px 25px;
+      border-bottom: 1px solid #eee;
+      text-align: center;
+    }
+
+    .login-header h1 {
+      font-size: 22px;
+      color: #c9a74f;
+      margin-bottom: 8px;
+    }
+
+    .login-header p {
+      font-size: 14px;
+      color: #777;
+    }
+
+    .login-form {
+      padding: 30px 25px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 14px;
+      margin-bottom: 8px;
+      color: #555;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      background-color: #f9f9f9;
+      font-size: 14px;
+      transition: border 0.3s;
+    }
+
+    .form-group input:focus {
+      border-color: #c9a74f;
+      outline: none;
+      background-color: #fff;
+    }
+
+    .remember-forgot {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+
+    .remember-me {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .forgot-password a {
+      color: #c9a74f;
+      text-decoration: none;
+    }
+
+    .forgot-password a:hover {
+      text-decoration: underline;
+    }
+
+    .login-button {
+      width: 100%;
+      padding: 12px;
+      background-color: #c9a74f;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .login-button:hover {
+      background-color: #b89842;
+    }
+
+    .login-footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 13px;
+      background-color: #fafafa;
+      border-top: 1px solid #eee;
+    }
+
+    .login-footer a {
+      color: #c9a74f;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .login-footer a:hover {
+      text-decoration: underline;
+    }
+
+    .error-message {
+      color: #d32f2f;
+      font-size: 14px;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    /* Modo Escuro */
+    body.dark-theme {
+      background-color: #1e1e1e;
+      color: #f0f0f0;
+    }
+
+    body.dark-theme .login-container {
+      background-color: #2a2a2a;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+
+    body.dark-theme .login-header {
+      background-color: #2a2a2a;
+      border-bottom: 1px solid #444;
+    }
+
+    body.dark-theme .login-header p {
+      color: #aaa;
+    }
+
+    body.dark-theme .form-group label {
+      color: #ddd;
+    }
+
+    body.dark-theme .form-group input {
+      background-color: #333;
+      border-color: #555;
+      color: #f0f0f0;
+    }
+
+    body.dark-theme .form-group input:focus {
+      border-color: #c9a74f;
+    }
+
+    body.dark-theme .remember-forgot,
+    body.dark-theme .login-footer {
+      color: #aaa;
+    }
+
+    body.dark-theme .login-footer {
+      background-color: #1e1e1e;
+      border-top: 1px solid #444;
+    }
+
+    body.dark-theme .forgot-password a,
+    body.dark-theme .login-footer a {
+      color: #c9a74f;
+    }
+
+    body.dark-theme .login-button {
+      background-color: #c9a74f;
+      color: #1e1e1e;
+    }
+
+    body.dark-theme .login-button:hover {
+      background-color: #b89842;
+    }
+  </style>
+</head>
+<body class="{% if tema == 'dark' %}dark-theme{% endif %}">
+  <div class="login-container">
+    <div class="login-header">
+      <h1>Bem-vindo de volta</h1>
+      <p>Faça login para acessar sua conta</p>
+    </div>
+
+    <form class="login-form" method="POST" action="/">
+      {% if error %}
+        <div class="error-message">{{ error }}</div>
+      {% endif %}
+
+      <div class="form-group">
+        <label for="username">Usuário</label>
+        <input type="text" id="username" name="username" placeholder="Digite seu usuário" required>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Senha</label>
+        <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
+      </div>
+
+      <div class="remember-forgot">
+        <div class="remember-me">
+          <input type="checkbox" id="remember">
+          <label for="remember">Lembrar-me</label>
+        </div>
+        <div class="forgot-password">
+          <a href="#">Esqueceu a senha?</a>
+        </div>
+      </div>
+
+      <button type="submit" class="login-button">Entrar</button>
+    </form>
+
+    <div class="login-footer">
+      Não tem uma conta? <a href="#">Cadastre-se</a>
+    </div>
+  </div>
+</body>
+</html>

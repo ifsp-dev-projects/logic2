@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Entretenimento - Portal de Notícias</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body class="{% if tema == 'dark' %}dark-theme{% endif %}">
+    <div class="header">
+        <div class="logo">Portal de Notícias</div>
+        <div class="user-info">
+            <span>Olá, {{ user }}</span>
+            <form action="{{ url_for('mudar_tema') }}" method="POST" style="display:inline;">
+                <button class="theme-toggle" type="submit">
+                    {% if tema == 'dark' %}Tema Claro{% else %}Tema Escuro{% endif %}
+                </button>
+            </form>
+            <a href="/logout"><button class="logout-btn">Sair</button></a>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="news-section">
+            <div class="category-filter">
+                <a href="/noticias"><button class="category-btn">Página Inicial</button></a>
+                <a href="/esportes"><button class="category-btn">Esportes</button></a>
+                <a href="#"><button class="category-btn active">Entretenimento</button></a>
+                <a href="/lazer"><button class="category-btn">Lazer</button></a>
+            </div>
+
+            <div class="news-grid">
+                <!-- Notícia 1 -->
+                <div class="news-card">
+                    <img src="{{ url_for('static', filename='img/a2.webp') }}" alt="Notícia" class="news-image">
+                    <div class="news-content">
+                        <h3 class="news-title">Novo rosto de Anitta choca fãs e movimenta a internet</h3>
+                        <p class="news-excerpt">Cantora passou por procedimentos estéticos e estava afastada dos holofotes há semanas</p>
+                        <a href="#" class="read-more">Ler mais →</a>
+                    </div>
+                </div>
+
+                <!-- Notícia 2 -->
+                <div class="news-card">
+                    <img src="{{ url_for('static', filename='img/a3.jpg') }}" alt="Notícia" class="news-image">
+                    <div class="news-content">
+                        <h3 class="news-title">Diários de uma Apotecária renovado para 3ª temporada</h3>
+                        <p class="news-excerpt">Confirmação veio logo após o final do útlimo episódio da segunda temporada</p>
+                        <a href="#" class="read-more">Ler mais →</a>
+                    </div>
+                </div>
+
+                <!-- Notícia 3 -->
+                <div class="news-card">
+                    <img src="{{ url_for('static', filename='img/a4.png') }}" alt="Notícia" class="news-image">
+
+                    <div class="news-content">
+                        <h3 class="news-title">Elenco de 'Quarteto Fantástico: Primeiros Passos' não virá ao Brasil promover o filme</h3>
+                        <p class="news-excerpt">Longa chega aos cinemas brasileiros neste mês</p>
+                        <a href="#" class="read-more">Ler mais →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

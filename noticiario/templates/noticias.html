@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portal de Notícias</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body class="{% if tema == 'dark' %}dark-theme{% endif %}">
+    <div class="header">
+        <div class="logo"> Portal de Notícias</div>
+        <div class="user-info">
+            <span>Olá, {{ user }}</span>
+            <form action="{{ url_for('mudar_tema') }}" method="POST" style="display:inline;">
+                <button class="theme-toggle" type="submit">
+                    {% if tema == 'dark' %}Tema Claro{% else %}Tema Escuro{% endif %}
+                </button>
+            </form>
+            <a href="/logout"><button class="logout-btn">Sair</button></a>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="welcome-box">
+            <h1>Bem-vindo, {{ user }}!</h1>
+            <p>Você agora tem acesso completo ao portal. Fique por dentro das principais notícias.</p>
+            <div class="user-details">
+                <p> Visitas nesta sessão: <strong>{{ visitas }}</strong></p>
+
+            </div>
+        </div>
+
+        <div class="news-section">
+            <h2>Últimas Notícias</h2>
+            <div class="category-filter">
+                <a href="/"><button class="category-btn active">Página Inicial</button></a>
+                <a href="/esportes"><button class="category-btn">Esportes</button></a>
+                <a href="/entretenimento"><button class="category-btn">Entretenimento</button></a>
+                <a href="/lazer"><button class="category-btn">Lazer</button></a>
+            </div>
+
+            <div class="news-grid">
+                <!-- Notícia 1 -->
+                <div class="news-card">
+                    <img src="{{ url_for('static', filename='img/e1.webp') }}" alt="Notícia" class="news-image">
+                    <div class="news-content">
+                        <span class="news-category">Esportes</span>
+                        <h3 class="news-title">Fim do sonho: Fluminense é eliminado do Mundial de Clubes pelo Chelsea</h3>
+                        <p class="news-excerpt">Cria do Tricolor das Laranjeiras, João Pedro marcou duas vezes e colocou o clube inglês na decisão</p>
+                        <a href="#" class="read-more">Ler mais →</a>
+                    </div>
+                </div>
+
+                <!-- Notícia 2 -->
+                <div class="news-card">
+                    <img src="{{ url_for('static', filename='img/a1.avif') }}" alt="Notícia" class="news-image">
+                    <div class="news-content">
+                        <span class="news-category">Entretenimento</span>
+                        <h3 class="news-title">'Superman' é leve e otimista e marca bom início do novo universo da DC</h3>
+                        <p class="news-excerpt">Diretor e roteirista de 'Guardiões da Galáxia' entrega ótima adaptação de quadrinhos como base do novo universo cinematográfico do estúdio.</p>
+                        <a href="#" class="read-more">Ler mais →</a>
+                    </div>
+                </div>
+
+                <!-- Notícia 3 -->
+                <div class="news-card">
+                    <img src="{{ url_for('static', filename='img/t1.jpg') }}" alt="Notícia" class="news-image">
+                    <div class="news-content">
+                        <span class="news-category">Lazer</span>
+                        <h3 class="news-title">Turismo toma fôlego e atinge patamares próximos aos níveis pré-pandêmicos</h3>
+                        <p class="news-excerpt">Brasil registrou em maio o maior número de turistas, quebrando a série histórica de arrecadação com o setor neste mês.</p>
+                        <a href="#" class="read-more">Ler mais →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Esportes - Portal de Notícias</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body class="{% if tema == 'dark' %}dark-theme{% endif %}">
+    <div class="header">
+        <div class="logo">Portal de Notícias</div>
+        <div class="user-info">
+            <span>Olá, {{ user }}</span>
+            <form action="{{ url_for('mudar_tema') }}" method="POST" style="display:inline;">
+                <button class="theme-toggle" type="submit">
+                    {% if tema == 'dark' %}Tema Claro{% else %}Tema Escuro{% endif %}
+                </button>
+            </form>
+            <a href="/logout"><button class="logout-btn">Sair</button></a>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="news-section">
+            <div class="category-filter">
+                <a href="/noticias"><button class="category-btn">Página Inicial</button></a>
+                <a href="#"><button class="category-btn active">Esportes</button></a>
+                <a href="/entretenimento"><button class="category-btn">Entretenimento</button></a>
+                <a href="/lazer"><button class="category-btn">Lazer</button></a>
+            </div>
+
+            <div class="news-grid">
+                <!-- Notícia 1 -->
+                <div class="news-card">
+                    <img src="{{ url_for('static', filename='img/e3.avif') }}" alt="Notícia" class="news-image">
+                    <div class="news-content">
+                        <h3 class="news-title">Hugo Calderano fica fora de competição nos Estados Unidos por problema com visto</h3>
+                        <p class="news-excerpt">Brasileiro não pôde usar seu passaporte português por causa de viagem a Cuba em 2023. Desde 2021, americanos exigem visto de qualquer turista que tenha passado pela ilha caribenha</p>
+                        <a href="#" class="read-more">Ler mais →</a>
+                    </div>
+                </div>
+
+                <!-- Notícia 2 -->
+                <div class="news-card">
+                    <img src="{{ url_for('static', filename='img/e4.webp') }}" alt="Notícia" class="news-image">
+                    <div class="news-content">
+                        <h3 class="news-title">Brasil estreia na última semana da Liga das Nações Feminina de Vôlei</h3>
+                        <p class="news-excerpt">Seleção Brasileira está com a vaga encaminhada e encara a Bulgária, nesta quarta-feira (9)</p>
+                        <a href="#" class="read-more">Ler mais →</a>
+                    </div>
+                </div>
+
+                <!-- Notícia 3 -->
+                <div class="news-card">
+                    <img src="{{ url_for('static', filename='img/e2.webp') }}" alt="Notícia" class="news-image">
+                    <div class="news-content">
+                        <h3 class="news-title">Avião do Real Madrid tem problema para pousar nos EUA; coletiva é
+                            cancelada</h3>
+                        <p class="news-excerpt">Após atraso e tempestade, avião do Real Madrid pousa em Nova Jersey com
+                            bastante atraso</p>
+                        <a href="#" class="read-more">Ler mais →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
