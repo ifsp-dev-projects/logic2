@@ -4,13 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portal de Notícias</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
 </head>
 
 <body class="{% if tema == 'dark' %}dark-theme{% endif %}">
+    {% set caminho = request.path %}
+
     <div class="header">
-        <div class="logo"> Portal de Notícias</div>
+        <div class="logo">Portal de Notícias</div>
         <div class="user-info">
             <span>Olá, {{ user }}</span>
             <form action="{{ url_for('mudar_tema') }}" method="POST" style="display:inline;">
@@ -18,7 +20,7 @@
                     {% if tema == 'dark' %}Tema Claro{% else %}Tema Escuro{% endif %}
                 </button>
             </form>
-            <a href="/logout"><button class="logout-btn">Sair</button></a>
+            <a href="{{ url_for('logout') }}"><button class="logout-btn">Sair</button></a>
         </div>
     </div>
 
@@ -27,53 +29,161 @@
             <h1>Bem-vindo, {{ user }}!</h1>
             <p>Você agora tem acesso completo ao portal. Fique por dentro das principais notícias.</p>
             <div class="user-details">
-                <p> Visitas nesta sessão: <strong>{{ visitas }}</strong></p>
-
+                <p>Visitas nesta sessão: <strong>{{ visitas }}</strong></p>
             </div>
         </div>
 
         <div class="news-section">
-            <h2>Últimas Notícias</h2>
+            <h2>
+                {% if categoria == 'esportes' %}
+                    Notícias Recentes de Esportes
+                {% elif categoria == 'entretenimento' %}
+                    Notícias Recentes de Entretenimento
+                {% elif categoria == 'lazer' %}
+                    Notícias Recentes de Lazer
+                {% else %}
+                    Notícias em Alta
+                {% endif %}
+            </h2>
+
             <div class="category-filter">
-                <a href="/"><button class="category-btn active">Página Inicial</button></a>
-                <a href="/esportes"><button class="category-btn">Esportes</button></a>
-                <a href="/entretenimento"><button class="category-btn">Entretenimento</button></a>
-                <a href="/lazer"><button class="category-btn">Lazer</button></a>
+                <a href="{{ url_for('limpar_categoria') }}">
+                    <button class="category-btn {% if caminho == '/noticias' %}active{% endif %}">Página Inicial</button>
+                </a>
+                <a href="{{ url_for('esportes') }}">
+                    <button class="category-btn {% if caminho == '/esportes' %}active{% endif %}">Esportes</button>
+                </a>
+                <a href="{{ url_for('entretenimento') }}">
+                    <button class="category-btn {% if caminho == '/entretenimento' %}active{% endif %}">Entretenimento</button>
+                </a>
+                <a href="{{ url_for('lazer') }}">
+                    <button class="category-btn {% if caminho == '/lazer' %}active{% endif %}">Lazer</button>
+                </a>
             </div>
 
             <div class="news-grid">
-                <!-- Notícia 1 -->
-                <div class="news-card">
-                    <img src="{{ url_for('static', filename='img/e1.webp') }}" alt="Notícia" class="news-image">
-                    <div class="news-content">
-                        <span class="news-category">Esportes</span>
-                        <h3 class="news-title">Fim do sonho: Fluminense é eliminado do Mundial de Clubes pelo Chelsea</h3>
-                        <p class="news-excerpt">Cria do Tricolor das Laranjeiras, João Pedro marcou duas vezes e colocou o clube inglês na decisão</p>
-                        <a href="#" class="read-more">Ler mais →</a>
+                {% if categoria == 'esportes' %}
+                    <!-- Notícias de Esportes -->
+                    <div class="news-card">
+                        <img src="{{ url_for('static', filename='img/e5.avif') }}" class="news-image">
+                        <div class="news-content">
+                            <span class="news-category">Esportes</span>
+                            <h3 class="news-title">Rayssa Leal sobra na pista e vence etapa de Brasília da SLS</h3>
+                            <p class="news-excerpt">Tricampeã da Liga Internacional de Skate Street, brasileira assume liderança ainda no início e levanta os torcedores presentes na Esplanada dos Ministérios, com direito a uma nota 8.0</p>
+                            <a href="#" class="read-more">Ler mais →</a>
+                        </div>
                     </div>
-                </div>
+                    <div class="news-card">
+                        <img src="{{ url_for('static', filename='img/e6.webp') }}" class="news-image">
+                        <div class="news-content">
+                            <span class="news-category">Esportes</span>
+                            <h3 class="news-title">Brasil tem atuação de gala e vence o Japão com autoridade na Liga das Nações Feminina</h3>
+                            <p class="news-excerpt">Julia Bergmann marca 15 pontos e ajuda seleção verde e amarela a garantir o segundo lugar na fase classificatória da VNL</p>
+                            <a href="#" class="read-more">Ler mais →</a>
+                        </div>
+                    </div>
+                    <div class="news-card">
+                        <img src="{{ url_for('static', filename='img/e7.jpg') }}" class="news-image">
+                        <div class="news-content">
+                            <span class="news-category">Esportes</span>
+                            <h3 class="news-title">João Fonseca passa no teste na grama e vai para as quadras rápidas com chances de top 30</h3>
+                            <p class="news-excerpt">Brasileiro encerra temporada no piso de grama com vitórias importantes, mas com gostinho de quero mais; três torneios em quadras rápidas nos próximos meses podem colocá-lo no top 30</p>
+                            <a href="#" class="read-more">Ler mais →</a>
+                        </div>
+                    </div>
 
-                <!-- Notícia 2 -->
-                <div class="news-card">
-                    <img src="{{ url_for('static', filename='img/a1.avif') }}" alt="Notícia" class="news-image">
-                    <div class="news-content">
-                        <span class="news-category">Entretenimento</span>
-                        <h3 class="news-title">'Superman' é leve e otimista e marca bom início do novo universo da DC</h3>
-                        <p class="news-excerpt">Diretor e roteirista de 'Guardiões da Galáxia' entrega ótima adaptação de quadrinhos como base do novo universo cinematográfico do estúdio.</p>
-                        <a href="#" class="read-more">Ler mais →</a>
+                {% elif categoria == 'entretenimento' %}
+                    <!-- Notícias de Entretenimento -->
+                    <div class="news-card">
+                        <img src="{{ url_for('static', filename='img/a5.avif') }}" class="news-image">
+                        <div class="news-content">
+                            <span class="news-category">Entretenimento</span>
+                            <h3 class="news-title">Novo álbum de Justin Bieber é um pouco chato (mas essa é também sua maior qualidade); leia crítica</h3>
+                            <p class="news-excerpt">'Swag', lançado de surpresa pelo cantor após hiato de 4 anos, tem produção minimalista e com pouco estimulo. Para ouvidos desacostumados, pode ser monótono.</p>
+                            <a href="#" class="read-more">Ler mais →</a>
+                        </div>
                     </div>
-                </div>
+                    <div class="news-card">
+                        <img src="{{ url_for('static', filename='img/a6.jpg') }}" class="news-image">
+                        <div class="news-content">
+                            <span class="news-category">Entretenimento</span>
+                            <h3 class="news-title">“JUMP”: BLACKPINK mostra sua força e quebra recordes com clipe</h3>
+                            <p class="news-excerpt">Enquanto artistas reclamam de falta de retorno no YouTube, BLACKPINK prova força de seu canal – o maior de um artista musical do mundo.
+</p>
+                            <a href="#" class="read-more">Ler mais →</a>
+                        </div>
+                    </div>
+                    <div class="news-card">
+                        <img src="{{ url_for('static', filename='img/a7.webp') }}" class="news-image">
+                        <div class="news-content">
+                            <span class="news-category">Entretenimento</span>
+                            <h3 class="news-title">Beyoncé perde milhares de seguidores após caso Diddy; qual a relação deles?</h3>
+                            <p class="news-excerpt">Beyoncé, perdeu quase 1 milhão de seguidores no Instagram após ter seu nome ligado ao do rapper e produtor musical P Diddy, preso neste mês por acusações de violência e exploração sexual, tráfico humano, sexual e de drogas</p>
+                            <a href="#" class="read-more">Ler mais →</a>
+                        </div>
+                    </div>
 
-                <!-- Notícia 3 -->
-                <div class="news-card">
-                    <img src="{{ url_for('static', filename='img/t1.jpg') }}" alt="Notícia" class="news-image">
-                    <div class="news-content">
-                        <span class="news-category">Lazer</span>
-                        <h3 class="news-title">Turismo toma fôlego e atinge patamares próximos aos níveis pré-pandêmicos</h3>
-                        <p class="news-excerpt">Brasil registrou em maio o maior número de turistas, quebrando a série histórica de arrecadação com o setor neste mês.</p>
-                        <a href="#" class="read-more">Ler mais →</a>
+                {% elif categoria == 'lazer' %}
+                    <!-- Notícias de Lazer -->
+                    <div class="news-card">
+                        <img src="{{ url_for('static', filename='img/t5.avif') }}" class="news-image">
+                        <div class="news-content">
+                            <span class="news-category">Lazer</span>
+                            <h3 class="news-title">Unesco reconhece Parque Cavernas do Peruaçu, em MG, como Patrimônio Mundial Natural da Humanidade</h3>
+                            <p class="news-excerpt">Decisão foi anunciada durante a 47ª Sessão do Comitê do Patrimônio Mundial, em Paris, na França, neste domingo (13). Esta é a primeira vez que o estado conquista esse título.
+</p>
+                            <a href="#" class="read-more">Ler mais →</a>
+                        </div>
                     </div>
-                </div>
+                    <div class="news-card">
+                        <img src="{{ url_for('static', filename='img/t6.webp') }}" class="news-image">
+                        <div class="news-content">
+                            <span class="news-category">Lazer</span>
+                            <h3 class="news-title">Após reforma de R$ 15 milhões, cinema terá de mesas para comer vendo filme a arremesso de machado</h3>
+                            <p class="news-excerpt">Empresa do Paraná quer "quebrar paradigmas de atendimento e alimentação" nestes espaços</p>
+                            <a href="#" class="read-more">Ler mais →</a>
+                        </div>
+                    </div>
+                    <div class="news-card">
+                        <img src="{{ url_for('static', filename='img/t7.webp') }}" class="news-image">
+                        <div class="news-content">
+                            <span class="news-category">Lazer</span>
+                            <h3 class="news-title">Shopping terá espaço ao ar livre com quadra de esportes e brinquedos para crianças e pets</h3>
+                            <p class="news-excerpt">O projeto terá investimento de R$ 3,4 milhões e será inaugurado em julho; veja imagens</p>
+                            <a href="#" class="read-more">Ler mais →</a>
+                        </div>
+                    </div>
+
+                {% else %}
+                    <!-- Notícias em Alta (sem categoria) -->
+                    <div class="news-card">
+                        <img src="{{ url_for('static', filename='img/e1.webp') }}" class="news-image">
+                        <div class="news-content">
+                            <span class="news-category">Esportes</span>
+                            <h3 class="news-title">Fluminense é eliminado do Mundial pelo Chelsea</h3>
+                            <p class="news-excerpt">João Pedro marcou duas vezes e colocou o clube inglês na decisão.</p>
+                            <a href="#" class="read-more">Ler mais →</a>
+                        </div>
+                    </div>
+                    <div class="news-card">
+                        <img src="{{ url_for('static', filename='img/a1.avif') }}" class="news-image">
+                        <div class="news-content">
+                            <span class="news-category">Entretenimento</span>
+                            <h3 class="news-title">Novo Superman marca recomeço da DC</h3>
+                            <p class="news-excerpt">Filme otimista abre a nova fase do universo cinematográfico.</p>
+                            <a href="#" class="read-more">Ler mais →</a>
+                        </div>
+                    </div>
+                    <div class="news-card">
+                        <img src="{{ url_for('static', filename='img/t1.jpg') }}" class="news-image">
+                        <div class="news-content">
+                            <span class="news-category">Lazer</span>
+                            <h3 class="news-title">Turismo volta a crescer após pandemia</h3>
+                            <p class="news-excerpt">Setor de viagens atinge patamares recordes em 2025.</p>
+                            <a href="#" class="read-more">Ler mais →</a>
+                        </div>
+                    </div>
+                {% endif %}
             </div>
         </div>
     </div>
