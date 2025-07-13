@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, make_respo
 
 app = Flask(__name__)
 
-USUARIO_CADASTRADO = "ana"
+USUARIO_CADASTRADO = ["ana", "dudu", "little agosto"]
 SENHA_CADASTRADA = "231"
 
 @app.route('/', methods=['GET', 'POST'])
@@ -13,7 +13,7 @@ def login():
         usuario = request.form['username']
         senha = request.form['password']
 
-        if usuario == USUARIO_CADASTRADO and senha == SENHA_CADASTRADA:
+        if usuario in USUARIO_CADASTRADO and senha == SENHA_CADASTRADA:
             destino = request.cookies.get('redirect_depois_login')
             if not destino:
                 destino = url_for('noticias')
