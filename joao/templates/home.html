@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Últimas Notícias</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Bem-vindo, {{ usuario }}</h1>
+        <h2>Últimas Notícias</h2>
+        <button id="toggle-mode">Alternar Modo Escuro</button> <br><br>
+        <form method="post" action="{{ url_for('logout') }}">
+            <button type="submit">Logout</button>
+        </form>
+    </header>
+    <p>acessos: {{ counter }}</p>
+    <nav>
+        <ul>
+            <li><a href="#" data-category="esporte">Esporte</a></li>
+            <li><a href="#" data-category="politica">Política</a></li>
+            <li><a href="#" data-category="musica">Música</a></li>
+            <li><a href="#" data-category="lazer">Lazer</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="esporte" class="news-section hidden">
+            <h2>Esporte</h2>
+            <div class="noticia">
+                <h4>Paris 2024: Medalhistas Brasileiros Se Preparam Para o Pódio</h4>
+                <p>Com a proximidade dos Jogos Olímpicos de Paris 2024, atletas brasileiros intensificam seus treinos e muitos já são cotados para trazer medalhas em diversas modalidades como natação, ginástica artística e atletismo.</p>
+                <p><small>Fonte: Ge.globo - 07 de julho de 2025</small></p>
+                <hr>
+            </div>
+            <div class="noticia">
+                <h4>Mercado da Bola Agitado: Grandes Transferências na Europa</h4>
+                <p>Clubes europeus estão movimentando milhões no mercado de transferências. Nomes de peso do futebol sul-americano e europeu estão sendo negociados para a próxima temporada, prometendo fortalecer elencos e acirrar a disputa por títulos.</p>
+                <p><small>Fonte: ESPN Brasil - 07 de julho de 2025</small></p>
+            </div>
+        </section>
+
+        <section id="politica" class="news-section hidden">
+            <h2>Política</h2>
+            <div class="noticia gold-mode">
+                <h4>Debate Sobre Reforma Tributária Avança no Congresso Nacional</h4>
+                <p>O Congresso Nacional retoma as discussões sobre a reforma tributária. Especialistas e parlamentares buscam um consenso para simplificar o sistema e impulsionar a economia do país.</p>
+                <p><small>Fonte: G1 Política - 07 de julho de 2025</small></p>
+                <hr>
+            </div>
+            <div class="noticia gold-mode">
+                <h4>Cúpula do G7 Discute Crise Climática e Acordos Internacionais</h4>
+                <p>Líderes das sete maiores economias do mundo se reúnem para debater soluções para a crise climática global e reforçar acordos de cooperação internacional em diversas áreas.</p>
+                <p><small>Fonte: Reuters - 07 de julho de 2025</small></p>
+            </div>
+        </section>
+
+        <section id="musica" class="news-section hidden">
+            <h2>Música</h2>
+            <div class="noticia black-mode">
+                <h4 class="aliceblue-text">Novo Álbum de Artista Pop Lidera Paradas Mundiais</h4>
+                <p class="aliceblue-text">O aguardado novo álbum da renomada artista pop internacional atingiu o topo das paradas de sucesso em diversos países, consolidando-se como um dos maiores lançamentos do ano.</p>
+                <p class="aliceblue-text"><small>Fonte: Billboard Brasil - 07 de julho de 2025</small></p>
+                <hr class="mediumseagreen-border">
+            </div>
+            <div class="noticia black-mode">
+                <h4 class="aliceblue-text">Festival de Música Anuncia Atrações Para Edição de 2025</h4>
+                <p class="aliceblue-text">Um dos maiores festivais de música do país revelou as primeiras atrações de sua edição de 2025, com nomes de destaque da cena nacional e internacional, prometendo um evento inesquecível.</p>
+                <p class="aliceblue-text"><small>Fonte: Tenho Mais Discos Que Amigos! - 07 de julho de 2025</small></p>
+            </div>
+        </section>
+
+        <section id="lazer" class="news-section hidden">
+            <h2>Lazer</h2>
+            <div class="noticia aliceblue-mode">
+                <h4>Cresce Procura Por Turismo de Aventura no Brasil</h4>
+                <p>O turismo de aventura em destinos brasileiros, como trilhas, rapel e ecoturismo, tem apresentado um aumento significativo na procura, impulsionando a economia local e oferecendo novas experiências aos viajantes.</p>
+                <p><small>Fonte: Embratur - 07 de julho de 2025</small></p>
+                <hr class="gold-border">
+            </div>
+            <div class="noticia aliceblue-mode">
+                <h4>Novas Plataformas de Streaming Lançam Conteúdos Exclusivos</h4>
+                <p>O mercado de streaming continua em expansão, com novas plataformas surgindo e as já existentes investindo em conteúdos exclusivos, como séries, filmes e documentários, para atrair e fidelizar o público.</p>
+                <p><small>Fonte: AdoroCinema - 07 de julho de 2025</small></p>
+            </div>
+        </section>
+    </main>
+    <script>
+        const body = document.body;
+        const toggleButton = document.getElementById('toggle-mode');
+        const navLinks = document.querySelectorAll('nav ul li a');
+        const newsSections = document.querySelectorAll('.news-section');
+
+        const noticiaDivs = document.querySelectorAll('.noticia');
+        const politicaDivs = document.querySelectorAll('#politica .noticia');
+        const musicaDivs = document.querySelectorAll('#musica .noticia');
+        const lazerDivs = document.querySelectorAll('#lazer .noticia');
+        const blackModeElements = document.querySelectorAll('.black-mode');
+        const aliceblueTextElements = document.querySelectorAll('.aliceblue-text');
+        const mediumseagreenBorderElements = document.querySelectorAll('.mediumseagreen-border');
+        const goldBorderElements = document.querySelectorAll('.gold-border');
+
+        let currentTheme = "{{ initial_theme }}"
+
+        function applyTheme(theme) {
+            if (theme === 'dark') {
+                body.classList.add('dark-mode');
+                body.classList.remove('light-mode');
+                toggleButton.textContent = 'Alternar Modo Claro';
+                localStorage.setItem('mode', 'dark');
+            } else {
+                body.classList.add('light-mode');
+                body.classList.remove('dark-mode');
+                toggleButton.textContent = 'Alternar Modo Escuro';
+                localStorage.setItem('mode', 'light');
+            }
+            currentTheme = theme
+        }
+
+        applyTheme(currentTheme)
+
+        toggleButton.addEventListener('click', () => {
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark'
+            const form = document.createElement('form')
+            form.method = 'POST'
+            form.action = '{{ url_for("set_theme") }}'
+
+            const input = document.createElement('input')
+            input.type = 'hidden'
+            input.name = 'theme'
+            input.value = newTheme
+            form.appendChild(input)
+
+            document.body.appendChild(form)
+            form.submit()
+
+        });
+        
+        let category = "{{ initial_category }}"
+
+        function showCategory(category) {
+            newsSections.forEach(section => {
+                if (section.id === category) {
+                    section.classList.remove('hidden');
+                } else {
+                    section.classList.add('hidden');
+                }
+            });
+        }
+
+        showCategory(category)
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                category = link.dataset.category;
+                const newCategory = category
+                const form = document.createElement('form')
+                form.method = 'POST'
+                form.action = '{{ url_for("set_category") }}'
+
+                const input = document.createElement('input')
+                input.type = 'hidden'
+                input.name = 'initial_category'
+                input.value = newCategory
+                form.appendChild(input)
+
+                document.body.appendChild(form)
+                form.submit()
+                
+            });
+        });
+        
+
+    </script>
+</body>
+</html>

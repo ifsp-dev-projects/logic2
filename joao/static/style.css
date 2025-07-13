@@ -1,0 +1,179 @@
+body {
+    font-family: sans-serif;
+    margin: 20px;
+    padding: 0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.hidden {
+    display: none;
+}
+
+
+body.light-mode {
+    background-color: aliceblue;
+    color: black;
+}
+
+body.light-mode main section h2 {
+    color: mediumseagreen;
+    border-bottom: 2px solid mediumseagreen;
+}
+
+body.light-mode .noticia {
+    background-color: mediumseagreen;
+    color: black;
+}
+
+body.light-mode .noticia h4,
+body.light-mode .noticia p {
+    color: black;
+}
+
+body.light-mode .noticia hr {
+    border-top: 1px solid aliceblue;
+}
+
+body.light-mode .gold-mode {
+    background-color: gold !important;
+}
+
+body.light-mode .gold-mode hr {
+    border-top: 1px solid black !important;
+}
+
+body.light-mode .black-mode {
+    background-color: black !important; 
+}
+
+body.light-mode .aliceblue-text {
+    color: aliceblue !important; 
+}
+
+body.light-mode .mediumseagreen-border {
+    border-top: 1px solid aliceblue !important; 
+}
+
+body.light-mode .aliceblue-mode {
+    background-color: aliceblue !important;
+}
+
+body.light-mode .aliceblue-mode hr {
+    border-top: 1px solid gold !important;
+}
+
+
+body.dark-mode {
+    background-color: black;
+    color: aliceblue;
+}
+
+body.dark-mode main section h2 {
+    color: aliceblue; 
+    border-bottom: 2px solid aliceblue;
+}
+
+body.dark-mode .noticia {
+    background-color: black; 
+    color: aliceblue;
+}
+
+body.dark-mode .noticia h4,
+body.dark-mode .noticia p {
+    color: aliceblue;
+}
+
+body.dark-mode .noticia hr {
+    border-top: 1px solid mediumseagreen; 
+}
+
+
+body.dark-mode .gold-mode {
+    background-color: black !important; 
+}
+
+body.dark-mode .gold-mode h4,
+body.dark-mode .gold-mode p {
+    color: aliceblue !important;
+}
+
+body.dark-mode .gold-mode hr {
+    border-top: 1px solid mediumseagreen !important;
+}
+
+body.dark-mode .black-mode {
+    background-color: black !important; 
+}
+
+body.dark-mode .aliceblue-text {
+    color: aliceblue !important; 
+}
+
+body.dark-mode .mediumseagreen-border {
+    border-top: 1px solid mediumseagreen !important; 
+}
+
+body.dark-mode .aliceblue-mode {
+    background-color: black !important; 
+}
+
+body.dark-mode .aliceblue-mode h4,
+body.dark-mode .aliceblue-mode p {
+    color: aliceblue !important;
+}
+
+body.dark-mode .aliceblue-mode hr {
+    border-top: 1px solid mediumseagreen !important;
+}
+
+
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: inherit; 
+    font-weight: bold;
+}
+
+main section {
+    margin-bottom: 30px;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+main section h2 {
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+}
+
+header button {
+    padding: 10px 15px;
+    background-color: #555;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+header button:hover {
+    background-color: #777;
+}

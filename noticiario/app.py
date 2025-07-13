@@ -20,7 +20,6 @@ def login():
 
             resposta = make_response(redirect(destino))
             resposta.set_cookie('username', usuario, max_age=60*10)
-            resposta.set_cookie('visitas', '1', max_age=60*30)
             resposta.set_cookie('tema', 'light', max_age=60*30)
             resposta.set_cookie('redirect_depois_login', '', expires=0)
             return resposta
@@ -40,7 +39,7 @@ def noticias():
 
     visitas_cookie = request.cookies.get('visitas')
     if visitas_cookie:
-        visitas = int(visitas_cookie) + 1
+        visitas = int(visitas_cookie) 
     else:
         visitas = 1
 
@@ -57,7 +56,7 @@ def noticias():
         tema=tema,
         categoria=categoria_selecionada
     ))
-    resposta.set_cookie('visitas', str(visitas), max_age=60*30)
+    resposta.set_cookie('visitas', str(visitas + 1), max_age=60*30)
     return resposta
 
 @app.route('/esportes')
@@ -123,6 +122,7 @@ def logout():
 
     resposta = make_response(redirect(url_for('login')))
     resposta.set_cookie('username', '', expires=0)
+    resposta.set_cookie('visitas', '', expires=0)
     resposta.set_cookie('redirect_depois_login', ultima_pagina, max_age=60)
     return resposta
 
