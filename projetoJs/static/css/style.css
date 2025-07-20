@@ -1,68 +1,92 @@
-*{
-    background-color: rgb(231, 231, 231);
-    padding: 0;
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
+* {
+  background-color: rgb(231, 231, 231);
+  padding: 0;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
 }
 
 
-.cadastro-header{
-    padding: 0px ;
-    margin: 0;
-    justify-content: center;
-    display: flex;
-    padding-top: 45px; 
+.cadastro-header {
+  padding: 0px;
+  margin: 0;
+  justify-content: center;
+  display: flex;
+  padding-top: 45px;
 
 }
 
-.cadastro-form{
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
-    justify-items: center;
-    margin-top: 6%;
-    margin-bottom: 20px;
+.cadastro-form {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  justify-items: center;
+  margin-top: 6%;
+  margin-bottom: 20px;
 
 }
 
-.login-button{
-    margin-top: 40px;
-    padding-left: 40px;
-    padding-right: 40px;
-    font-size: 20px;
-    border-radius: 10px;
+.login-button {
+  margin-top: 40px;
+  padding-left: 40px;
+  padding-right: 40px;
+  font-size: 20px;
+  border-radius: 10px;
 }
 
-.login-button:hover{
-    background-color: gold;
-    transition: 0.7s;
-    font-size: 25px;
-    cursor: pointer;
+.login-button:hover {
+  background-color: gold;
+  transition: 0.7s;
+  font-size: 25px;
+  cursor: pointer;
 }
 
 .form-group {
-    margin-bottom: 20px;
-  }
+  margin-bottom: 20px;
+}
 
-  .form-group label {
-    display: block;
-    font-size: 14px;
-    margin-bottom: 8px;
-    color: #555;
-  }
+.form-group label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 8px;
+  color: #555;
+}
 
-  .form-group input {
-    width: 100%;
-    padding: 12px 15px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    background-color: #f9f9f9;
-    font-size: 14px;
-    transition: border 0.3s;
-  }
+.form-group input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+  font-size: 14px;
+  transition: border 0.3s;
+}
 
-  .form-group input:focus {
-    border-color: #c9a74f;
-    outline: none;
-    background-color: #fff;
-  }
+.form-group input:focus {
+  border-color: #c9a74f;
+  outline: none;
+  background-color: #fff;
+}
+
+.alert {
+  padding: 15px 25px;
+  margin: 20px auto;
+  border-radius: 8px;
+  width: 60%;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.alert-success {
+  background-color: #d4f8d4;
+  color: #1a7f1a;
+  border: 1px solid #9de89d;
+}
+
+.alert-danger {
+  background-color: #ffd6d6;
+  color: #c0392b;
+  border: 1px solid #f5b5b5;
+}
