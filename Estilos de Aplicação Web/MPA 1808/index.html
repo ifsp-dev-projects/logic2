@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inuyasha</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f7f7f7;
+    }
+    header {
+      background: url(https://github.com/ifsp-dev-projects/webdev1/blob/main/exercicio11/inuyasha.jpg?raw=true) center/cover no-repeat;
+      height: 60vh;
+      color: white;
+    }
+    header h1 {
+      font-family: 'Uncial Antiqua', serif;
+      font-size: 4rem;
+      text-shadow: 2px 2px 5px black;
+    }
+    header p {
+      text-shadow: 1px 1px 3px black;
+    }
+    .btn-custom {
+      background-color: #850000;
+      color: white;
+    }
+    .btn-custom:hover {
+      background-color: #aa3c3c;
+    }
+    footer {
+      background-color: #850000;
+      color: white;
+      padding: 1rem 0;
+      text-align: center;
+    }
+    footer a {
+      color: white !important;
+      text-decoration: underline;
+    }
+    .gallery img {
+      border-radius: 10px;
+    }
+    .menu-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: #850000;
+      border: none;
+      color: white;
+      font-size: 28px;
+      padding: 6px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      z-index: 1050;
+    }
+    .menu-btn:hover {
+      background: #aa3c3c;
+    }
+    .offcanvas-title {
+      font-family: 'Uncial Antiqua', serif;
+    }
+    .offcanvas-body a {
+      display: block;
+      padding: 10px 0;
+      color: #850000;
+      text-decoration: none;
+      font-size: 18px;
+    }
+    .offcanvas-body a:hover {
+      color: #aa3c3c;
+    }
+    .card img {
+      height: 300px;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Botão menu -->
+<button class="menu-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuLateral" aria-controls="menuLateral">⋮</button>
+
+<!-- Menu lateral -->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="menuLateral" aria-labelledby="menuLateralLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="menuLateralLabel">Navegação</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <a href="noticias.html">Notícias</a>
+    <a href="manga.html">Mangá</a>
+    <a href="filmes.html">Filmes</a>
+    <a href="jogos.html">Jogos</a>
+    <a href="mais.html">Mais</a>
+  </div>
+</div>
+
+<header class="d-flex justify-content-center align-items-center text-center">
+</header>
+
+<section id="sobre" class="container my-5">
+  <h2 class="text-center text-danger mb-4">Sobre o Anime</h2>
+  <div class="row align-items-center">
+    <div class="col-md-6">
+      <img src="https://github.com/ifsp-dev-projects/webdev1/blob/main/exercicio11/inu2.jpg?raw=true" class="img-fluid rounded shadow" alt="InuYasha Key Art">
+    </div>
+    <div class="col-md-6">
+      <p class="fs-5">
+        Inuyasha é uma série de fantasia criada por Rumiko Takahashi. Ambientada no Japão feudal, a história segue InuYasha, um meio-youkai, e Kagome, uma estudante do século XXI que é transportada para o passado. Juntos, eles enfrentam perigos enquanto tentam restaurar a Joia de Quatro Almas.
+      </p>
+      <a href="https://www.viz.com/inuyasha" target="_blank" class="btn btn-custom">Leia Mais</a>
+    </div>
+  </div>
+</section>
+
+<section id="personagens" class="container my-5">
+  <h2 class="text-center text-danger mb-4">Personagens Principais</h2>
+  <div class="row text-center g-4">
+    <div class="col-md-3">
+      <div class="card border-0 shadow">
+        <img src="https://github.com/ifsp-dev-projects/webdev1/blob/main/exercicio11/inu3.jpg?raw=true" class="card-img-top" alt="InuYasha">
+        <div class="card-body">
+          <h5 class="card-title">Inuyasha</h5>
+          <p class="card-text">Um meio-youkai determinado a proteger aqueles que ama.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card border-0 shadow">
+        <img src="https://github.com/ifsp-dev-projects/webdev1/raw/refs/heads/main/exercicio11/inu4.avif" class="card-img-top" alt="Kagome">
+        <div class="card-body">
+          <h5 class="card-title">Kagome</h5>
+          <p class="card-text">A heroína que conecta o presente ao passado.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card border-0 shadow">
+        <img src="https://github.com/ifsp-dev-projects/webdev1/raw/refs/heads/main/exercicio11/inu4.webp" class="card-img-top" alt="Miroku">
+        <div class="card-body">
+          <h5 class="card-title">Miroku</h5>
+          <p class="card-text">O amigo monge de Inuyasha.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card border-0 shadow">
+        <img src="https://i.pinimg.com/564x/7b/40/0c/7b400c8f2f6c8c3df5c6d0e8c1ef6ee8.jpg" class="card-img-top" alt="Sango">
+        <div class="card-body">
+          <h5 class="card-title">Sango</h5>
+          <p class="card-text">Caçadora de youkais habilidosa e corajosa.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card border-0 shadow">
+        <img src="https://i.pinimg.com/564x/57/92/d0/5792d0b923c080f7b90d05efbba3e893.jpg" class="card-img-top" alt="Shippo">
+        <div class="card-body">
+          <h5 class="card-title">Shippo</h5>
+          <p class="card-text">Um jovem kitsune que acompanha o grupo.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card border-0 shadow">
+        <img src="https://i.pinimg.com/564x/6f/2f/f4/6f2ff49c293b1a2bc2ecb812cd26f1af.jpg" class="card-img-top" alt="Sesshomaru">
+        <div class="card-body">
+          <h5 class="card-title">Sesshomaru</h5>
+          <p class="card-text">O poderoso irmão de Inuyasha.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card border-0 shadow">
+        <img src="https://i.pinimg.com/564x/34/6e/bb/346ebbcd8af89e8e726dd5c19c05d9a8.jpg" class="card-img-top" alt="Kikyo">
+        <div class="card-body">
+          <h5 class="card-title">Kikyo</h5>
+          <p class="card-text">A sacerdotisa ligada ao destino de Inuyasha.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="galeria" class="container my-5">
+  <h2 class="text-center text-danger mb-4">Galeria de Imagens</h2>
+  <div class="row g-3 gallery">
+    <div class="col-md-3">
+      <img src="https://github.com/ifsp-dev-projects/webdev1/blob/main/exercicio11/inu5.jpg?raw=true" class="img-fluid shadow" alt="Imagem 1">
+    </div>
+    <div class="col-md-3">
+      <img src="https://github.com/ifsp-dev-projects/webdev1/blob/main/exercicio11/inu6.jpg?raw=true" class="img-fluid shadow" alt="Imagem 2">
+    </div>
+    <div class="col-md-3">
+      <img src="https://github.com/ifsp-dev-projects/webdev1/blob/main/exercicio11/inu7.jpg?raw=true" class="img-fluid shadow" alt="Imagem 3">
+    </div>
+    <div class="col-md-3">
+      <img src="https://github.com/ifsp-dev-projects/webdev1/blob/main/exercicio11/inu8.jpg?raw=true" class="img-fluid shadow" alt="Imagem 4">
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2024 InuYasha Fan Page. Inspirado no anime criado por Rumiko Takahashi.</p>
+  <p><a href="https://www.viz.com/inuyasha" target="_blank">Visite o site oficial</a></p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
