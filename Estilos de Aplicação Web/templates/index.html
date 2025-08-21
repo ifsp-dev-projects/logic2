@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="pt-BR" class="theme-dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Coda</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Padauk:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  <link rel="stylesheet" href="../MPA 1808/static/style.css">
+</head>
+<body>
+  <!-- ======= NAVBAR ======= -->
+  <header class="topbar">
+    <nav class="nav">
+      <a class="brand" href="#" aria-label="SomVerso — Início">
+        <span class="logo" aria-hidden="true"></span>
+        <span>CODA</span>
+      </a>
+
+      <!-- Barra de pesquisa translúcida (no meio) -->
+      <form class="search" role="search">
+        <input type="search" placeholder="Buscar artistas, músicas, festivais…" aria-label="Buscar" />
+        <svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M21 21l-4.35-4.35M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </form>
+
+      <!-- Área direita: menu perto do login + botão de login único -->
+      <div class="right">
+        <ul class="menu" aria-label="Navegação principal">
+          <li>
+            <a href="#">Notícias</a>
+            <div class="dropdown" role="menu" aria-label="Submenu Notícias">
+              <a href="#">Em alta</a>
+              <a href="#">Internacional</a>
+              <a href="#">Nacional</a>
+              <a href="#">Lançamentos</a>
+            </div>
+          </li>
+          <li>
+            <a href="#">Eventos</a>
+            <div class="dropdown" role="menu" aria-label="Submenu Eventos">
+              <a href="#">Lollapalooza</a>
+              <a href="#">Rock in Rio</a>
+              <a href="#">Primavera Sound</a>
+              <a href="#">The Town</a>
+            </div>
+          </li>
+          <li>
+            <a href="#">Premiações</a>
+            <div class="dropdown" role="menu" aria-label="Submenu Premiações">
+              <a href="#">Grammy</a>
+              <a href="#">VMA</a>
+              <a href="#">Billboard Music Awards</a>
+              <a href="#">MTV Miaw</a>
+            </div>
+          </li>
+        </ul>
+        <button class="login-btn" type="button" aria-label="Entrar">Entrar</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ======= BANNER: Notícias em alta (não muito grande) ======= -->
+  <section class="hero" aria-label="Em alta">
+    <div class="hero-strip">
+      <a class="news-card" href="http://g1.globo.com/pop-arte/musica/the-town/2025/noticia/2025/08/20/the-town-2025-oferece-infraestrutura-acessivel-e-servicos-para-pessoas-com-deficiencia.ghtml">
+        <span class="badge">EM ALTA</span>
+        <img class="thumb" src="https://imgs.search.brave.com/8x7WKbELBgbM-leGrlf0yzFARw9nKFWljYckJ1LqYQc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9mLmku/dW9sLmNvbS5ici9m/b3RvZ3JhZmlhLzIw/MjMvMDkvMTAvMTY5/NDM1MDA4NDY0ZmRi/YjA0YjExZDZfMTY5/NDM1MDA4NF8zeDJf/bWQuanBn" alt="The Town"/>
+        <div class="title">The Town garante acessibilidade e serviços para PCDs.</div>
+      </a>
+      <a class="news-card" href="#">
+        <span class="badge" style="background: var(--accent-2)">LANÇAMENTO</span>
+        <img class="thumb" src="https://imgs.search.brave.com/MG4B734V5ewTIjkGUiUmCG7BD2KyE9WhbEGh9bN3huU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9wcmV2/aWV3LnJlZGQuaXQv/dGhlLWxpZmUtb2Yt/YS1zaG93Z2lybC1v/dXQtb2N0b2Jlci0z/cmQtdjAtaGdqdGpn/MGxjdmlmMS5qcGc_/d2lkdGg9NjQwJmNy/b3A9c21hcnQmYXV0/bz13ZWJwJnM9YzYz/ZGUwNzg0MjIwODIx/NzJiMzY2YmQ5NWEw/YjE4N2I3YmE1ZDFj/Mg" alt="Capa albúm The Life of a Showgirl"/>
+        <div class="title">Taylor Swift anuncia 12º álbum</div>
+      </a>
+      <a class="news-card" href="#">
+        <span class="badge">FESTIVAL</span>
+        <img class="thumb" src="https://imgs.search.brave.com/nDN3BuLHFjbshIFF2aGoIvswS45POB6d4mfS9YxZsUk/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9mLmku/dW9sLmNvbS5ici9m/b3RvZ3JhZmlhLzIw/MjEvMTIvMDkvMTYz/OTA1NzkwOTYxYjIw/OWY1NjEwN2JfMTYz/OTA1NzkwOV8zeDJf/bWQuanBn"/>
+        <div class="title">Primavera Sound São Paulo 2025?</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ======= TOP ARTISTAS (10 itens, 5 por vez com setas) ======= -->
+  <section class="section" aria-labelledby="top-artistas">
+    <div class="section-head">
+      <h2 id="top-artistas">Top Artistas</h2>
+      <div class="sub">Em alta nesta semana</div>
+    </div>
+
+    <div class="artists-wrap">
+      <button class="arrow prev" aria-label="Anterior" data-action="prev">&#10094;</button>
+      <div class="artists-viewport">
+        <div class="artists-track" id="artistsTrack">
+          <!-- 10 artistas (placeholders). Substitua por links reais para página do artista -->
+          <a class="artist" href="#" aria-label="Billie Eilish">
+            <img src="https://preview.redd.it/what-is-your-favorite-bruno-mars-pic-this-is-my-fav-and-its-v0-p3impgmpeygd1.jpeg?width=1080&crop=smart&auto=webp&s=6b926af4249d70f30cde1efe7f17c381e88ea6dd" alt="Bruno Mars" />
+            <span class="overlay">Bruno Mars</span>
+          </a>
+          <a class="artist" href="#" aria-label="The Weeknd">
+            <img src="https://imgs.search.brave.com/ueu5h-r-SHSXNiCS6wA83A6a3EGnzS_qsBCSLNRzPjI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/dmFnYWx1bWUuY29t/LmJyL2xhZHktZ2Fn/YS9kaXNjb2dyYWZp/YS9tYXloZW0ud2Vi/cA" alt="Lady Gaga" />
+            <span class="overlay">Lady Gaga</span>
+          </a>
+          <a class="artist" href="#" aria-label="Anitta">
+            <img src="https://imgs.search.brave.com/QdOgKqmehK9w3DpTb-tn_SplDf1TuhyVuGomD3PCNHc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJjYXQuY29t/L3cvZnVsbC9lLzAv/NC8xOTM4NzEtMTky/MHgxMDgwLWRlc2t0/b3AtMTA4MHAtdGhl/LXdlZWtuZC13YWxs/cGFwZXItaW1hZ2Uu/anBn" alt="The Weeknd" />
+            <span class="overlay">The Weeknd</span>
+          </a>
+          <a class="artist" href="#" aria-label="Taylor Swift">
+            <img src="https://imgs.search.brave.com/egwKoUW8YEn_pBA3-BXSXm3asgF20znPstGsqv2NPTs/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9mLmku/dW9sLmNvbS5ici9m/b3RvZ3JhZmlhLzIw/MjQvMTAvMTQvMTcy/ODkxMjc1NTY3MGQx/ZDczYjlkZTlfMTcy/ODkxMjc1NV8zeDJf/bWQuanBn" alt="Taylor Swift" />
+            <span class="overlay">Taylor Swift</span>
+          </a>
+          <a class="artist" href="#" aria-label="Travis Scott">
+            <img src="https://imgs.search.brave.com/7l8ny5Ca_3FacL4kk7EmUkuO5O9zr6TSYHSd-iUuVbc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTM2/ODE1NjU3NC9waG90/by9ob2xseXdvb2Qt/Y2FsaWZvcm5pYS10/eWxlci10aGUtY3Jl/YXRvci1hdHRlbmRz/LXRoZS11LXMtcHJl/bWllcmUtb2YtamFj/a2Fzcy1mb3JldmVy/LWF0LXRjbC5qcGc_/cz02MTJ4NjEyJnc9/MCZrPTIwJmM9Q201/TEI0THJNdXViOWtG/SlFuQUI3VjFhSGJS/R1Z4V040VVlSaEd5/azBpRT0" alt="Tyler, The Creator" />
+            <span class="overlay">Tyler, The Creator</span>
+          </a>
+          <a class="artist" href="#" aria-label="IZA">
+            <img src="https://imgs.search.brave.com/QRXAvefHOvqenz7H7kNUull3IbpfevlIPOI9NuhWDf8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9wcmV2/aWV3LnJlZGQuaXQv/d2hhdHMtdGhlLWhh/cmRlc3Qta2VuZHJp/Y2stbGFtYXItcGlj/dHVyZS15b3UtaGF2/ZS1zZWVuLXYwLXhp/ejR3d3Y3bWg1YjEu/anBlZz93aWR0aD0x/MTI1JmZvcm1hdD1w/anBnJmF1dG89d2Vi/cCZzPWI2NjQ2YzRh/ODRmYjU3Zjc3NDll/MmQ5Mjc0NGMzZTkx/ZGJkNmEzYjg" alt="Kendrick Lamar" />
+            <span class="overlay">Kendrick Lamar</span>
+          </a>
+          <a class="artist" href="#" aria-label="BTS">
+            <img src="https://imgs.search.brave.com/DH3jKbwjxfS13WQ8wGjGzQX4Mjp-BDZbO8EDaZg_bLo/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzJmLzU2/L2Q5LzJmNTZkOTc2/YjZmYzljODJjYWEy/MmI0OTg2MTQxMDhk/LmpwZw" alt="Sabrina Carpenter" />
+            <span class="overlay">Sabrina Carpenter</span>
+          </a>
+          <a class="artist" href="#" aria-label="Lana Del Rey">
+            <img src="https://imgs.search.brave.com/lyV1u_34kp-x0F_1rn24Kcf33f3Rm_5D4snvz2O91Xc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJiYXQuY29t/L2ltZy85NzIxMjQ0/LWFyY3RpYy1tb25r/ZXlzLWFsZXgtdHVy/bmVyLmpwZw" alt="Alex Turner" />
+            <span class="overlay">Alex Turner</span>
+          </a>
+          <a class="artist" href="#" aria-label="Harry Styles">
+            <img src="https://imgs.search.brave.com/MFF4JtXn54H0IHS5wQcPc26HIK1A2CM6sGVJSJM1niw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTAz/NTMwOTYwL3B0L2Zv/dG8vZmxvcmVuY2Ut/d2Vsc2gtb2YtZmxv/cmVuY2UtYW5kLXRo/ZS1tYWNoaW5lLXBl/cmZvcm1zLWR1cmlu/Zy1kYXktb25lLW9m/LXYtZmVzdGl2YWwt/MjAxMC1vbi1hdWd1/c3QuanBnP3M9NjEy/eDYxMiZ3PTAmaz0y/MCZjPWtCdU9Rc2dM/UEE0T05mLVZINVRP/amJtNVZhaUtER2N1/bm9Zc3BKODZvS2M9" alt="Florence + The Machine" />
+            <span class="overlay">Florence + The Machine</span>
+          </a>
+          <a class="artist" href="#" aria-label="Pabllo Vittar">
+            <img src="https://imgs.search.brave.com/tHMTQDs1UvCyfk5jOp7ZPVSfaJKpYctH_XGoEhNLgHM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzFhLzFl/LzJmLzFhMWUyZjM4/Y2Q3MWIyNjU0MzBj/YzkwODUzMmViYTEz/LmpwZw" alt="Mitski" />
+            <span class="overlay">Mitski</span>
+          </a>
+        </div>
+      </div>
+      <button class="arrow next" aria-label="Próximo" data-action="next">&#10095;</button>
+    </div>
+  </section>
+
+  <!-- ======= GRID: Notícias / Eventos / Premiações ======= -->
+  <section class="section" aria-label="Destaques">
+    <div class="grid">
+      <article class="card">
+        <img class="cover" src="https://imgs.search.brave.com/q0mvHIZZHv9SazSgAwWP4FYSWntf9J-eXYIwmp7l1HM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTgx/NzQxMTA2OC9waG90/by9zemEtYXQtdmFy/aWV0eS1oaXRtYWtl/cnMtcHJlc2VudGVk/LWJ5LXNvbnktYXVk/aW8taGVsZC1hdC1u/eWEtd2VzdC1vbi1k/ZWNlbWJlci0yLTIw/MjMtaW4tbG9zLmpw/Zz9zPTYxMng2MTIm/dz0wJms9MjAmYz0x/bm90Q1dJa044c3VI/aHRsVXFXYk1Xbkg0/RFNCWUpzb0d6QWFQ/Tjk2LU5nPQ" alt="SZA"/>
+        <div class="body">
+          <span class="chip">Notícias</span>
+          <h3 class="title-sm">100 semanas no Top 10: SZA quebra recorde na Billboard</h3>
+        </div>
+      </article>
+      <article class="card">
+        <img class="cover" src="https://imgs.search.brave.com/eG3U_EIWBeHdgjOQqF8WvdEhiCvTHm9txbvv0XKRwn4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9iaWxs/Ym9hcmQuY29tLmJy/L3dwLWNvbnRlbnQv/dXBsb2Fkcy8yMDI0/LzA3LzIwMjItMDgt/MDlUMTU0ODAwWl85/ODUwMjEwMjlfTVQx/QUJDUFIwMDBCMDRS/RENfUlRSTUFEUF8z/X0FCQUNBLVBSRVNT/LXNjYWxlZC5qcGc" alt="Lollapalooza"/>
+        <div class="body">
+          <span class="chip chip--pink">Eventos</span>
+          <h3 class="title-sm">Lollapalooza Brasil 2026: venda de ingressos começa na quinta-feira</h3>
+        </div>
+      </article>
+      <article class="card">
+        <img class="cover" src="https://portalpopline.com.br/wp-content/uploads/2025/06/sabrina-cachorrinha-capa.jpg" alt="Capa Sabrina Carpenter"/>
+        <div class="body">
+          <span class="chip">Premiações</span>
+          <h3 class="title-sm">7 artistas confirmados para performances no VMA 2025</h3>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ======= FOOTER ======= -->
+  <footer>
+    <div class="foot">
+      <div>
+        <strong>Coda</strong> — Portal de música moderno. 
+      </div>
+      <div class="social" aria-label="Redes sociais">
+        <span class="dot" title="Instagram"></span>
+        <span class="dot" title="X/Twitter"></span>
+        <span class="dot" title="YouTube"></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================
+       JS opcional: carrossel TOP ARTISTAS (5 por vez)
+       * A navegação usa páginas simples (pos 0 e 1) para 10 itens
+       * Mantenho bem leve; pode trocar por sua lógica depois
+  ========================== -->
+  <script>
+    (function(){
+      const track = document.getElementById('artistsTrack');
+      let page = 0; // 0 = primeiros 5, 1 = próximos 5 (em telas largas)
+
+      function move(dir){
+        const viewport = track.parentElement.getBoundingClientRect().width;
+        // calcula quantas colunas cabem por viewport para manter compatível com responsivo
+        // (aproximação: pega largura do primeiro item + gap)
+        const first = track.querySelector('.artist');
+        if(!first) return;
+        const style = getComputedStyle(track);
+        const gap = parseFloat(style.gap || '0');
+        const itemWidth = first.getBoundingClientRect().width;
+        const perView = Math.max(1, Math.round((viewport + gap) / (itemWidth + gap)));
+
+        const total = track.children.length;
+        const maxPage = Math.ceil(total / perView) - 1;
+        page = Math.min(maxPage, Math.max(0, page + dir));
+        const offset = -(viewport + gap) * page;
+        track.style.transform = `translateX(${offset}px)`;
+      }
+
+      document.querySelector('[data-action="prev"]').addEventListener('click', ()=> move(-1));
+      document.querySelector('[data-action="next"]').addEventListener('click', ()=> move(1));
+      window.addEventListener('resize', ()=> { track.style.transform = 'translateX(0)'; page = 0; });
+    })();
+
+    // Tema: troque a classe em <html> manualmente por enquanto
+    // document.documentElement.classList.toggle('theme-light');
+  </script>
+</body>
+</html>
