@@ -30,11 +30,11 @@
         <div class="card" style="max-width: 400px; width: 100%; padding: 32px; box-shadow: var(--shadow);">
             <h2 style="text-align:center; margin-bottom: 24px;">Entrar no Coda</h2>
             
-            <form action="/login" method="POST" style="display: grid; gap: 16px;">
+            <form action="/logar" method="POST" style="display: grid; gap: 16px;">
                 <!-- Email/Username -->
                 <div>
-                    <label for="username" class="muted" style="display:block; margin-bottom:6px;">Usuário ou Email</label>
-                    <input type="text" id="username" name="username" placeholder="Digite seu usuário ou email"
+                    <label for="username" class="muted" style="display:block; margin-bottom:6px;">Usuário</label>
+                    <input type="text" id="username" name="username" placeholder="Digite seu usuário"
                         style="width:100%; padding:12px; border-radius:999px; border:1px solid var(--glass-border); background:var(--glass); color:var(--text); outline:none; transition: var(--transition);">
                 </div>
 
@@ -47,10 +47,10 @@
 
                 <!-- Remember Me -->
                 <div style="display:flex; align-items:center; gap:10px;">
-                    <input type="checkbox" id="remember" name="remember">
+                    <input type="checkbox" id="remember" name="remember" value="remember">
                     <label for="remember" class="muted">Lembrar de mim</label>
                 </div>
-
+                {{ mensagem }}
                 <!-- Login Button -->
                 <button type="submit" class="login-btn" style="width:100%;">Entrar</button>
             </form>
@@ -58,7 +58,7 @@
             <!-- Links adicionais -->
             <div style="text-align:center; margin-top:16px;">
                 <a href="#" class="btn-link">Esqueceu a senha?</a> | 
-                <a href="cadastro.html" class="btn-link">Criar conta</a>
+                <a href="mudarCadastro" class="btn-link">Criar conta</a>
             </div>
         </div>
     </main>

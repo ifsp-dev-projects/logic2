@@ -30,7 +30,7 @@
         <div class="card" style="max-width: 450px; width: 100%; padding: 32px; box-shadow: var(--shadow);">
             <h2 style="text-align:center; margin-bottom: 24px;">Crie sua conta no Coda</h2>
             
-            <form action="/register" method="POST" style="display: grid; gap: 16px;">
+            <form action="/cadastrar" method="POST" style="display: grid; gap: 16px;">
                 <!-- Nome -->
                 <div>
                     <label for="name" class="muted" style="display:block; margin-bottom:6px;">Nome completo</label>
@@ -65,7 +65,7 @@
                     <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirme sua senha"
                         style="width:100%; padding:12px; border-radius:999px; border:1px solid var(--glass-border); background:var(--glass); color:var(--text); outline:none; transition: var(--transition);">
                 </div>
-
+                {{ mensagem }}
                 <!-- Botão de Cadastro -->
                 <button type="submit" class="login-btn" style="width:100%;">Cadastrar</button>
             </form>
@@ -73,7 +73,7 @@
             <!-- Link para login -->
             <div style="text-align:center; margin-top:16px;">
                 <span class="muted">Já possui uma conta? </span>
-                <a href="login.html" class="btn-link">Entrar</a>
+                <a href="/mudarLogin" class="btn-link">Entrar</a>
             </div>
         </div>
     </main>
