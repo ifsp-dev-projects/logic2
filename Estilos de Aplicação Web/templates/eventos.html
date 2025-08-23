@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="pt-BR" class="theme-dark">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Coda</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Padauk:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+    <link rel="stylesheet" href="../MPA 1808/static/style.css">
+</head>
+
+<body>
+    <!-- ======= NAVBAR ======= -->
+    <header class="topbar">
+        <nav class="nav">
+            <a class="brand" href="index.html" aria-label="Coda — Início">
+                <span class="logo" aria-hidden="true"></span>
+                <span>CODA</span>
+            </a>
+
+            <!-- Barra de pesquisa -->
+            <form class="search" role="search">
+                <input type="search" placeholder="Buscar artistas, músicas, festivais…" aria-label="Buscar" />
+                <svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M21 21l-4.35-4.35M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" />
+                </svg>
+            </form>
+
+            <!-- Área direita: menu perto do login + botão de login único -->
+            <div class="right">
+                <ul class="menu" aria-label="Navegação principal">
+                    <li>
+                        <a href="noticias.html">Notícias</a>
+                        <div class="dropdown" role="menu" aria-label="Submenu Notícias">
+                            <a href="#">Em alta</a>
+                            <a href="#">Internacional</a>
+                            <a href="#">Nacional</a>
+                            <a href="#">Lançamentos</a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="eventos.html" class="title2">Eventos</a>
+                        <div class="dropdown" role="menu" aria-label="Submenu Eventos">
+                            <a href="#">Lollapalooza</a>
+                            <a href="#">Rock in Rio</a>
+                            <a href="#">Primavera Sound</a>
+                            <a href="#">The Town</a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="premiações.html">Premiações</a>
+                        <div class="dropdown" role="menu" aria-label="Submenu Premiações">
+                            <a href="#">Grammy</a>
+                            <a href="#">VMA</a>
+                            <a href="#">Billboard Music Awards</a>
+                            <a href="#">MTV Miaw</a>
+                        </div>
+                    </li>
+                </ul>
+                <a href="login.html" style="text-decoration: none;">
+                    <button type="button" class="login-btn" aria-label="Entrar">Entrar</button>
+                </a>
+                <button class="tema-btn" type="button" aria-label="Tema">Tema</button>
+            </div>
+        </nav>
+    </header>
+
+    <section class="section" aria-label="Destaques">
+        <div class="grid">
+            <article class="card">
+                <img class="cover" src="https://images.unsplash.com/photo-1497531551184-06b252e1bee1?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YmFsJUMzJUEzb3xlbnwwfDB8MHx8fDA%3D" alt="" />
+                <div class="body">
+                    <span class="chip chip--pink">Eventos</span>
+                    <h3 class="title-sm">Festival secreto no deserto só aceita público que chega de balão</h3>
+                </div>
+            </article>
+
+            <article class="card">
+                <img class="cover" src="https://images.unsplash.com/photo-1511316695145-4992006ffddb?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y3J1emVpcm98ZW58MHwwfDB8fHww" alt="" />
+                <div class="body">
+                    <span class="chip chip--pink">Eventos</span>
+                    <h3 class="title-sm">Show surpresa em alto-mar reúne 5 bandas em um navio que não divulgou a rota</h3>
+                </div>
+            </article>
+
+            <article class="card">
+                <img class="cover" src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8ZmVzdGl2YWx8ZW58MHwwfDB8fHww" alt="" />
+                <div class="body">
+                    <span class="chip chip--pink">Eventos</span>
+                    <h3 class="title-sm">Primeiro festival totalmente silencioso atrai milhares de pessoas</h3>
+                </div>
+            </article>
+
+            <article class="card">
+                <img class="cover" src="https://plus.unsplash.com/premium_photo-1714618849685-89cad85746b1?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZHJvbmV8ZW58MHwwfDB8fHww" alt="" />
+                <div class="body">
+                    <span class="chip chip--pink">Eventos</span>
+                    <h3 class="title-sm">Concerto experimental usou drones como instrumentos musicais</h3>
+                </div>
+            </article>
+
+            <article class="card">
+                <img class="cover" src="https://plus.unsplash.com/premium_photo-1663091701962-2ae72a2ad2ac?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cmVhbGlkYWRlJTIwYXVtZW50YWRhfGVufDB8MHwwfHx8MA%3D%3D" alt="" />
+                <div class="body">
+                    <span class="chip chip--pink">Eventos</span>
+                    <h3 class="title-sm">Evento futurista transmitiu um show inteiro em realidade aumentada no céu noturno</h3>
+                </div>
+            </article>
+
+            <article class="card">
+                <img class="cover" src="https://plus.unsplash.com/premium_photo-1682095924383-f4aa9387cc15?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8aG9sb2dyYW1hc3xlbnwwfDB8MHx8fDA%3D" alt="" />
+                <div class="body">
+                    <span class="chip chip--pink">Eventos</span>
+                    <h3 class="title-sm">Festival anunciou line-up formado 100% por hologramas de artistas já falecidos</h3>
+                </div>
+            </article>
+
+            <article class="card">
+                <img class="cover" src="https://plus.unsplash.com/premium_photo-1663011158210-e80ee57cfeb4?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGVzc29hcyUyMGVtYmFpeG8lMjBkYWd1YXxlbnwwfDB8MHx8fDA%3D" alt="" />
+                <div class="body">
+                    <span class="chip chip--pink">Eventos</span>
+                    <h3 class="title-sm">Concerto embaixo d’água permite que público ouça músicas apenas por vibração sonora</h3>
+                </div>
+            </article>
+
+            <article class="card">
+                <img class="cover" src="https://images.unsplash.com/photo-1576514129883-2f1d47a65da6?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cGFsY29zfGVufDB8MHwwfHx8MA%3D%3D" alt="" />
+                <div class="body">
+                    <span class="chip chip--pink">Eventos</span>
+                    <h3 class="title-sm">Evento reúne orquestra sinfônica e DJs tocando simultaneamente em palcos giratórios</h3>
+                </div>
+            </article>
+
+            <article class="card">
+                <img class="cover" src="https://plus.unsplash.com/premium_photo-1661876638101-e83e45eaeacc?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bWV0ciVDMyVCNHxlbnwwfDB8MHx8fDA%3D" alt="" />
+                <div class="body">
+                    <span class="chip chip--pink">Eventos</span>
+                    <h3 class="title-sm">Show surpresa em uma estação de metrô paralisou a cidade por 2 horas</h3>
+                </div>
+            </article>
+
+
+        </div>
+    </section>
+
+    <!-- ======= FOOTER ======= -->
+    <footer>
+        <div class="foot">
+            <div>
+                <strong>Coda</strong> — Portal de música moderno.
+            </div>
+            <div class="social" aria-label="Redes sociais">
+                <span class="dot" title="Instagram"></span>
+                <span class="dot" title="X/Twitter"></span>
+                <span class="dot" title="YouTube"></span>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

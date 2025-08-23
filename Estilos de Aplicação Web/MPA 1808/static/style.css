@@ -119,7 +119,7 @@ img {
 /* Search central translúcida */
 .search {
     justify-self: center;
-    width: min(620px, 80%);
+    width: min(1000px, 120%);
     position: relative;
 }
 
@@ -167,7 +167,7 @@ img {
     border: 0;
     cursor: pointer;
     font-weight: 600;
-    background: var(--accent);
+    background: #a3a3a3;
     color: #fff;
     box-shadow: var(--shadow);
     transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
@@ -175,8 +175,27 @@ img {
 
 .login-btn:hover {
     transform: translateY(-1px);
-    background: var(--accent-2);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, .35);
+    background: #373737;
+    box-shadow: 0 12px 30px rgba(255, 255, 255, 0.35);
+}
+
+.tema-btn {
+    padding: 10px 16px;
+    border-radius: 999px;
+    border: 0;
+    cursor: pointer;
+    font-weight: 600;
+    background: #a3a3a3;
+    color: #ffffff;
+    box-shadow: var(--shadow);
+    transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+}
+
+.tema-btn:hover {
+    transform: translateY(-1px);
+    background: #373737;
+    box-shadow: 0 12px 30px rgba(255, 242, 242, 0.35);
+
 }
 
 /* Links principais com mini janelas (dropdowns) no lado direito, perto do login */
@@ -212,6 +231,12 @@ img {
     border-radius: var(--radius);
     padding: 10px;
     display: none;
+}
+
+.title2 {
+    font-weight: bolder;
+    background-color: #7c3aed;
+    border-radius: 20px;
 }
 
 .menu>li:hover .dropdown {

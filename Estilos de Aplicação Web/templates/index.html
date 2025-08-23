@@ -19,7 +19,7 @@
         <span>CODA</span>
       </a>
 
-      <!-- Barra de pesquisa translúcida (no meio) -->
+      <!-- Barra de pesquisa -->
       <form class="search" role="search">
         <input type="search" placeholder="Buscar artistas, músicas, festivais…" aria-label="Buscar" />
         <svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M21 21l-4.35-4.35M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
@@ -29,7 +29,7 @@
       <div class="right">
         <ul class="menu" aria-label="Navegação principal">
           <li>
-            <a href="#">Notícias</a>
+            <a href="noticias.html">Notícias</a>
             <div class="dropdown" role="menu" aria-label="Submenu Notícias">
               <a href="#">Em alta</a>
               <a href="#">Internacional</a>
@@ -38,7 +38,7 @@
             </div>
           </li>
           <li>
-            <a href="#">Eventos</a>
+            <a href="eventos.html">Eventos</a>
             <div class="dropdown" role="menu" aria-label="Submenu Eventos">
               <a href="#">Lollapalooza</a>
               <a href="#">Rock in Rio</a>
@@ -47,7 +47,7 @@
             </div>
           </li>
           <li>
-            <a href="#">Premiações</a>
+            <a href="premiações.html">Premiações</a>
             <div class="dropdown" role="menu" aria-label="Submenu Premiações">
               <a href="#">Grammy</a>
               <a href="#">VMA</a>
@@ -56,7 +56,10 @@
             </div>
           </li>
         </ul>
-        <button class="login-btn" type="button" aria-label="Entrar">Entrar</button>
+        <a href="login.html" style="text-decoration: none;">
+          <button type="button" class="login-btn" aria-label="Entrar">Entrar</button>  
+        </a>
+        <button class="tema-btn" type="button" aria-label="Tema">Tema</button>
       </div>
     </nav>
   </header>
@@ -181,20 +184,14 @@
     </div>
   </footer>
 
-  <!-- ==========================
-       JS opcional: carrossel TOP ARTISTAS (5 por vez)
-       * A navegação usa páginas simples (pos 0 e 1) para 10 itens
-       * Mantenho bem leve; pode trocar por sua lógica depois
-  ========================== -->
   <script>
     (function(){
       const track = document.getElementById('artistsTrack');
-      let page = 0; // 0 = primeiros 5, 1 = próximos 5 (em telas largas)
+      let page = 0; 
 
       function move(dir){
         const viewport = track.parentElement.getBoundingClientRect().width;
-        // calcula quantas colunas cabem por viewport para manter compatível com responsivo
-        // (aproximação: pega largura do primeiro item + gap)
+      
         const first = track.querySelector('.artist');
         if(!first) return;
         const style = getComputedStyle(track);
@@ -214,8 +211,7 @@
       window.addEventListener('resize', ()=> { track.style.transform = 'translateX(0)'; page = 0; });
     })();
 
-    // Tema: troque a classe em <html> manualmente por enquanto
-    // document.documentElement.classList.toggle('theme-light');
+
   </script>
 </body>
 </html>
