@@ -6,19 +6,19 @@ app.secret_key = 'chaveSuperSecreta'
 
 users = {'ana': '123', 'helo': '456'}
 
-app.permanent_session_lifetime = timedelta(days=7)  # Tempo de expiração da sessão
+app.permanent_session_lifetime = timedelta(days=7) 
 
 @app.route('/')
 def carregarIndex():
-    if 'user' in session:  # Verifica se o usuário está logado
+    if 'user' in session:  
         return render_template('index.html', user=session['user'])
-    return redirect(url_for('paginaLogin'))  # Redireciona para a página de login
+    return redirect(url_for('paginaLogin'))  
 
 @app.route('/mudarNoticias', methods=['GET'])
 def paginaNoticias():
     if 'user' in session:
         return render_template('noticias.html')
-    return redirect(url_for('paginaLogin'))  # Redireciona para a página de login se não estiver logado
+    return redirect(url_for('paginaLogin'))  
 
 @app.route('/mudarEventos', methods=['GET'])
 def paginaEventos():
