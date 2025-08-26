@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="pt-BR" class="theme-dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Coda</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Padauk:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body id="{{ body_id }}">
+  <!-- ======= NAVBAR ======= -->
+  <header class="topbar">
+    <nav class="nav">
+      <a class="brand" href="/" aria-label="SomVerso — Início">
+        <span class="logo" aria-hidden="true"></span>
+        <span>CODA</span>
+      </a>
+
+      <!-- Barra de pesquisa -->
+      <form class="search" role="search">
+        <input type="search" placeholder="Buscar artistas, músicas, festivais…" aria-label="Buscar" />
+        <svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M21 21l-4.35-4.35M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </form>
+
+      <!-- Área direita: menu perto do login + botão de login único -->
+      <div id="menu"></div>
+
+
+    <div id="conteudo"></div>
+
+  <!-- ======= FOOTER ======= -->
+  <footer>
+    <div class="foot">
+      <div>
+        <strong>Coda</strong> — Portal de música moderno. 
+      </div>
+      <div class="social" aria-label="Redes sociais">
+        <span class="dot" title="Instagram"></span>
+        <span class="dot" title="X/Twitter"></span>
+        <span class="dot" title="YouTube"></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/static/script.js">
+    
+  </script>
+</body>
+</html>

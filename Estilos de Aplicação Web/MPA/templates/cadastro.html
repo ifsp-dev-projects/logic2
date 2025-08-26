@@ -1,0 +1,97 @@
+
+<!doctype html>
+<html lang="pt-BR" class="theme-dark">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cadastro — Coda</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Padauk:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+        <link rel="stylesheet" href="../MPA 1808/static/style.css">
+</head>
+
+<body>
+    <!-- ======= NAVBAR ======= -->
+    <header class="topbar">
+        <nav class="nav">
+            <a class="brand" href="/" aria-label="Coda — Início">
+                <span class="logo" aria-hidden="true"></span>
+                <span>CODA</span>
+            </a>
+        </nav>
+    </header>
+
+    <!-- ======= CADASTRO FORM ======= -->
+    <main class="center" style="min-height: calc(100vh - 120px); padding: 20px;">
+        <div class="card" style="max-width: 450px; width: 100%; padding: 32px; box-shadow: var(--shadow);">
+            <h2 style="text-align:center; margin-bottom: 24px;">Crie sua conta no Coda</h2>
+            
+            <form action="/cadastrar" method="POST" style="display: grid; gap: 16px;">
+                <!-- Nome -->
+                <div>
+                    <label for="name" class="muted" style="display:block; margin-bottom:6px;">Nome completo</label>
+                    <input type="text" id="name" name="name" placeholder="Digite seu nome"
+                        style="width:100%; padding:12px; border-radius:999px; border:1px solid var(--glass-border); background:var(--glass); color:var(--text); outline:none; transition: var(--transition);">
+                </div>
+
+                <!-- Email -->
+                <div>
+                    <label for="email" class="muted" style="display:block; margin-bottom:6px;">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Digite seu email"
+                        style="width:100%; padding:12px; border-radius:999px; border:1px solid var(--glass-border); background:var(--glass); color:var(--text); outline:none; transition: var(--transition);">
+                </div>
+
+                <!-- Usuário -->
+                <div>
+                    <label for="username" class="muted" style="display:block; margin-bottom:6px;">Usuário</label>
+                    <input type="text" id="username" name="username" placeholder="Escolha um nome de usuário"
+                        style="width:100%; padding:12px; border-radius:999px; border:1px solid var(--glass-border); background:var(--glass); color:var(--text); outline:none; transition: var(--transition);">
+                </div>
+
+                <!-- Senha -->
+                <div>
+                    <label for="password" class="muted" style="display:block; margin-bottom:6px;">Senha</label>
+                    <input type="password" id="password" name="password" placeholder="Digite sua senha"
+                        style="width:100%; padding:12px; border-radius:999px; border:1px solid var(--glass-border); background:var(--glass); color:var(--text); outline:none; transition: var(--transition);">
+                </div>
+
+                <!-- Confirmar Senha -->
+                <div>
+                    <label for="confirm_password" class="muted" style="display:block; margin-bottom:6px;">Confirmar senha</label>
+                    <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirme sua senha"
+                        style="width:100%; padding:12px; border-radius:999px; border:1px solid var(--glass-border); background:var(--glass); color:var(--text); outline:none; transition: var(--transition);">
+                </div>
+                {{ mensagem }}
+                <!-- Botão de Cadastro -->
+                <button type="submit" class="login-btn" style="width:100%;">Cadastrar</button>
+            </form>
+
+            <!-- Link para login -->
+            <div style="text-align:center; margin-top:16px;">
+                <span class="muted">Já possui uma conta? </span>
+                <a href="/mudarLogin" class="btn-link">Entrar</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- ======= FOOTER ======= -->
+    <footer>
+        <div class="foot">
+            <div>
+                <strong>Coda</strong> — Portal de música moderno.
+            </div>
+            <div class="social" aria-label="Redes sociais">
+                <span class="dot" title="Instagram"></span>
+                <span class="dot" title="X/Twitter"></span>
+                <span class="dot" title="YouTube"></span>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
