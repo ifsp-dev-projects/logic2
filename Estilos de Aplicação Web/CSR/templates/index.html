@@ -26,10 +26,18 @@
       </form>
 
       <!-- Área direita: menu perto do login + botão de login único -->
-      <div id="menu"></div>
+      <div class="right">
+        <div id="menu"></div>
 
+        <a href="/mudarLogin" style="text-decoration: none;">
+          <button type="button" class="login-btn" aria-label="Entrar">Entrar</button>  
+        </a>
+        <button class="tema-btn" type="button" aria-label="Tema">Tema</button>
+      </div>
+    </nav>
+  </header>
 
-    <div id="conteudo"></div>
+  <div id="conteudo"></div>
 
   <!-- ======= FOOTER ======= -->
   <footer>
@@ -45,8 +53,6 @@
     </div>
   </footer>
 
-  <script src="/static/script.js">
-    
-  </script>
+  <script src="/static/script.js"></script>
 </body>
 </html>

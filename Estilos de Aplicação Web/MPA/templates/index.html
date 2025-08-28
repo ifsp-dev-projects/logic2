@@ -67,6 +67,7 @@
   {% block content %}
   <!-- ======= BANNER: Notícias em alta (não muito grande) ======= -->
   <section class="hero" aria-label="Em alta">
+    <h1>Aplicação MPA</h1>
     <div class="hero-strip">
       <a class="news-card" href="http://g1.globo.com/pop-arte/musica/the-town/2025/noticia/2025/08/20/the-town-2025-oferece-infraestrutura-acessivel-e-servicos-para-pessoas-com-deficiencia.ghtml" target="_blank">
         <span class="badge">EM ALTA</span>
@@ -185,6 +186,7 @@
     </div>
   </footer>
 
+  {% block script %}
   <script>
     (function(){
       const track = document.getElementById('artistsTrack');
@@ -211,8 +213,7 @@
       document.querySelector('[data-action="next"]').addEventListener('click', ()=> move(1));
       window.addEventListener('resize', ()=> { track.style.transform = 'translateX(0)'; page = 0; });
     })();
-
-
   </script>
+  {% endblock %}
 </body>
 </html>

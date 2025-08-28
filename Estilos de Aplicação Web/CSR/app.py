@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, session, redirect, url_for, j
 from datetime import timedelta
 
 app = Flask(__name__)
-app.secret_key = 'chaveSuperSecreta'
+app.secret_key = 'chaveSuperSecreta2'
 
 users = {'ana': '123', 'helo': '456'}
 
@@ -112,7 +112,7 @@ def api_artistas():
     return jsonify(artistas)
 
 @app.route('/api/destaques')
-def api_destaqies():
+def api_destaques():
     destaques = [
     {'alt': 'SZA', 'categoria': 'Notícias', 'titulo': '100 semanas no Top 10: SZA quebra recorde na Billboard', 'img': 'https://imgs.search.brave.com/q0mvHIZZHv9SazSgAwWP4FYSWntf9J-eXYIwmp7l1HM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTgx/NzQxMTA2OC9waG90/by9zemEtYXQtdmFy/aWV0eS1oaXRtYWtl/cnMtcHJlc2VudGVk/LWJ5LXNvbnktYXVk/aW8taGVsZC1hdC1u/eWEtd2VzdC1vbi1k/ZWNlbWJlci0yLTIw/MjMtaW4tbG9zLmpw/Zz9zPTYxMng2MTIm/dz0wJms9MjAmYz0x/bm90Q1dJa044c3VI/aHRsVXFXYk1Xbkg0/RFNCWUpzb0d6QWFQ/Tjk2LU5nPQ'},
     {'alt': 'Lollapalooza', 'categoria': 'Eventos', 'titulo': 'Lollapalooza Brasil 2026: venda de ingressos começa na quinta-feira', 'img': 'https://imgs.search.brave.com/eG3U_EIWBeHdgjOQqF8WvdEhiCvTHm9txbvv0XKRwn4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9iaWxs/Ym9hcmQuY29tLmJy/L3dwLWNvbnRlbnQv/dXBsb2Fkcy8yMDI0/LzA3LzIwMjItMDgt/MDlUMTU0ODAwWl85/ODUwMjEwMjlfTVQx/QUJDUFIwMDBCMDRS/RENfUlRSTUFEUF8z/X0FCQUNBLVBSRVNT/LXNjYWxlZC5qcGc'},
@@ -161,12 +161,9 @@ def api_premiacoes():
     {'titulo': 'Premiação secreta acontece em um trem em movimento','img': 'https://images.unsplash.com/photo-1527295110-5145f6b148d0?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dHJlbXxlbnwwfDB8MHx8fDA%3D'},
     {'titulo': 'Cerimônia anuncia premiação para "melhor capa de álbum gerada por IA"','img': 'https://images.unsplash.com/photo-1697577418970-95d99b5a55cf?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW50ZWxpZ2VuY2lhJTIwYXJ0aWZpY2lhbHxlbnwwfDB8MHx8fDA%3D'},
     {'titulo': 'Troféu de premiação é impresso em 3D em tempo real no palco','img': 'https://images.unsplash.com/photo-1625643268477-838321f445bb?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHRyb2ZldXxlbnwwfDB8MHx8fDA%3D'},
-    {'titulo': 'Cantora vence duas vezes na mesma categoria com músicas lançadas no mesmo mês','img': '"https://images.unsplash.com/photo-1604658243847-17375af581fa?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8dmVuY2Vkb3JhfGVufDB8MHwwfHx8MA%3D%3D'},
+    {'titulo': 'Cantora vence duas vezes na mesma categoria com músicas lançadas no mesmo mês','img': 'https://images.unsplash.com/photo-1604658243847-17375af581fa?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8dmVuY2Vkb3JhfGVufDB8MHwwfHx8MA%3D%3D'},
     ]
     return jsonify(premiacoes)
-
-
-
 
 if __name__ == '__main__':
     app.run(debug=True)
