@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Minhas Tarefas</h1>
+
+    <form action="{{ url_for ('adicionar')}}" method="post">
+        <input type="text" name="texto_da_tarefa" required minlength="3" placeholder="Digite uma nova tarefa...">
+        <button type="submit">Adicionar</button>
+    </form>
+
+    <ul class="lask-list">
+        {% for id, tarefa in tarefas.items() %}
+            <li class="tarefa-item">
+                <input type="checkbox" class="check-tarefa" data-tarefa-id="{{ id }}" {% if tarefa.concluida %} checked {% endif %}>
+                <span id="texto-tarefa-{{ id }}" class="{{ 'concluida' if tarefa.concluida }}">
+                    {{ tarefa.texto }}
+                </span>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
