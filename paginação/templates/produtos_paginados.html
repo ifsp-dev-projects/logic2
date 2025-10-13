@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos Paginados</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <a href="{{ url_for('produto_bp.listar_produtos') }}">
+        <button>Voltar</button>
+    </a>
+    <nav>
+        <ul class="pagination">
+            {% for page_num in range(1, total_pages+1) %}
+            <li class="{% if page == page_num %}active{% endif %}">
+                <a href="{{ url_for('produto_bp.listar_produtos_paginados', page=page_num) }}">
+                    {{ page_num }}
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </nav>
+    <h1>Seja bem-vindo a nossa loja!</h1>
+    <h2>Nossos produtos:</h2>
+    <div class="container">
+        {% for produto in produtos %}
+        <div class="produtos">
+                        <a class="produto-nome" href="{{ url_for('produto_bp.detalhe_produto', produto_id=produto.id) }}">
+                {{ produto.nome }}
+            </a>
+            <span class="produto-preco">R$ {{ "%.2f"|format(produto.preco) }}</span>
+        </div>
+        {% endfor %}
+    </div>
+
+</body>
+
+</html>
