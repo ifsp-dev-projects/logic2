@@ -3,7 +3,7 @@ import math
 from models.produto import PRODUTOS, buscar_produto_por_id, buscar_produtos_por_nome, adicionar, excluir, Produto
 
 produto_bp = Blueprint('produto_bp', __name__)
-next_id = 21
+next_id = 20
 
 @produto_bp.route('/')
 @produto_bp.route('/produtos')
