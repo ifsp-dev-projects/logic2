@@ -1,10 +1,32 @@
 class Produto:
     def __init__(self, id, nome, preco):
-        self.id = id
-        self.nome = nome
-        self.preco = preco
+        self._id = id
+        self._nome = nome
+        self._preco = preco
+
+    @property
+    def id(self):
+        return self._id
+    
+    @property
+    def nome(self):
+        return self._nome
+    
+    @property
+    def preco(self):
+        return self._preco
+    
+    def alterarPreco(self, novoPreco):
+        self._preco = novoPreco
+
+    def alterarNome(self, novoNome):
+        self._nome = novoNome
+
+    def alterarId(self, novoId):
+        self._id = novoId
 
 PRODUTOS = [
+    Produto(0, 'Smartwatch Esportivo', 680.00),
     Produto(1, 'Notebook Gamer X', 5200.00),
     Produto(2, 'Mouse Sem Fio', 150.00),
     Produto(3, 'Teclado Mecânico RGB', 350.00),
@@ -23,8 +45,7 @@ PRODUTOS = [
     Produto(16, 'Cooler para Processador', 180.00),
     Produto(17, 'Impressora Laser', 890.00),
     Produto(18, 'Tablet 10" Full HD', 1500.00),
-    Produto(19, 'Smartphone Flagship', 3500.00),
-    Produto(20, 'Smartwatch Esportivo', 680.00)
+    Produto(19, 'Smartphone Flagship', 3500.00)
 ]
 
 def buscar_produto_por_id(produto_id):
@@ -36,3 +57,20 @@ def buscar_produto_por_id(produto_id):
 def buscar_produtos_por_nome(nome):
     nome = nome.lower()
     return [p for p in PRODUTOS if nome in p.nome.lower()]
+
+def adicionar(novoProd):
+    PRODUTOS.append(novoProd)
+
+def excluir(prod_id):
+    found = False
+    for prod in PRODUTOS:
+        if prod.id == prod_id:
+            found = True
+            PRODUTOS.remove(prod)
+            indice = 0
+            for produto in PRODUTOS:
+                produto.alterarId(indice)
+                indice += 1
+
+    if not found:
+        return 'Este produto não existe'

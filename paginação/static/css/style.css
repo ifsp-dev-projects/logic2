@@ -66,7 +66,7 @@ h2 {
     text-align: center;
 }
 
-button {
+.btn-paginados {
     position: absolute;
     top: 20px;
     right: 20px;
