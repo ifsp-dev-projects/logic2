@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ produto.nome }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
+
 <body>
-    <h1>{{ produto.nome }}</h1>
-    <p>Preço: R$ {{ "%.2f"|format(produto.preco) }}</p>
-    <a href="{{ url_for('produto_bp.listar_produtos') }}">Voltar para a lista</a>
+    <div class="product-detail-container">
+        <h1>{{ produto.nome }}</h1>
+        <p>Preço: R$ {{ "%.2f"|format(produto.preco) }}</p>
+        <a href="{{ url_for('produto_bp.listar_produtos') }}" class="back-link">Voltar para a lista</a>
+    </div>
 </body>
+
 </html>

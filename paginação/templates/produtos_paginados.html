@@ -10,9 +10,15 @@
 </head>
 
 <body>
-    <a href="{{ url_for('produto_bp.listar_produtos') }}">
-        <button class="btn-paginados">Voltar</button>
-    </a>
+    <div class="buttons">
+        <a href="{{ url_for('produto_bp.listar_produtos') }}">
+            <button class="btn">Produtos</button>
+        </a>
+        <a href="{{ url_for('produto_bp.pagina_manipular') }}">
+            <button class="btn">Adicione e remova produtos</button>
+        </a>
+    </div>
+
     <nav>
         <ul class="pagination">
             {% for page_num in range(1, total_pages+1) %}
@@ -29,7 +35,7 @@
     <div class="container">
         {% for produto in produtos %}
         <div class="produtos">
-                        <a class="produto-nome" href="{{ url_for('produto_bp.detalhe_produto', produto_id=produto.id) }}">
+            <a class="produto-nome" href="{{ url_for('produto_bp.detalhe_produto', produto_id=produto.id) }}">
                 {{ produto.nome }}
             </a>
             <span class="produto-preco">R$ {{ "%.2f"|format(produto.preco) }}</span>

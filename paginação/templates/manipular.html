@@ -1,43 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manipular</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
+
 <body>
+    <div class="buttons">
+        <a href="{{ url_for('produto_bp.listar_produtos') }}">
+            <button class="btn">Produtos</button>
+        </a>
+        <a href="{{ url_for('produto_bp.listar_produtos_paginados') }}">
+            <button class="btn">Produtos paginados</button>
+        </a>
+    </div>
     <h1>Página de manipulações</h1>
 
-    <h3>Adicionar Produto</h3>
-    <form action="/adicionar" method="POST">
-        Nome:<input type="text" name="nome" required placeholder="Nome do produto">
-        Preço: <input type="text" name="preco" required placeholder="Preço do produto">
-        <button type="submit">Adicionar</button>
-    </form>
+    <div class="forms-container">
+        <div class="form-section">
+            <h3>Adicionar Produto</h3>
+            <form action="/adicionar" method="POST">
+                Nome:<input type="text" name="nome" required placeholder="Nome do produto">
+                Preço: <input type="text" name="preco" required placeholder="Preço do produto">
+                <button type="submit">Adicionar</button>
+            </form>
+        </div>
 
-    <h3>Remover Produto</h3>
-    <form action="/excluir" method="POST">
-        Id:<input type="number" name="id" required placeholder="id do produto">
-        <button type="submit">excluir</button>
-    </form>
+        <div class="form-section">
+            <h3>Remover Produto</h3>
+            <form action="/excluir" method="POST">
+                Id:<input type="number" name="id" required placeholder="id do produto">
+                <button type="submit">excluir</button>
+            </form>
+        </div>
 
-    <h3>Alterar Produto</h3>
-    <form action="/alterar" method="POST">
-        Id:<input type="text" name="id" required placeholder="id do produto">
-        Novo nome: <input type="text" name="newName">
-        Novo preço: <input type="number" name="newPrice">
-        <button type="submit">Alterar</button>
-    </form>
+        <div class="form-section">
+            <h3>Alterar Produto</h3>
+            <form action="/alterar" method="POST">
+                Id:<input type="text" name="id" required placeholder="id do produto">
+                Novo nome: <input type="text" name="newName">
+                Novo preço: <input type="number" name="newPrice">
+                <button type="submit">Alterar</button>
+            </form>
+        </div>
+    </div>
 
     <div class="container">
         {% for produto in produtos %}
         <div class="produtos">
-                {{ produto.id }} - {{ produto.nome }} 
-    
+            {{ produto.id }} - {{ produto.nome }}
+
             <span class="produto-preco">R$ {{ "%.2f"|format(produto.preco) }}</span>
         </div>
         {% endfor %}
     </div>
 </body>
+
 </html>
