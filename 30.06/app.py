@@ -1,9 +1,13 @@
-from flask import Flask, render_template, request, redirect, url_for, make_response
+from flask import Flask, render_template, request, redirect, url_for, session
 
 app = Flask(__name__)
+app.secret_key = "segredo123"   
 
-USUARIO_CADASTRADO = "admin"
-SENHA_CADASTRADA = "123"
+USUARIOS = {
+    "ana": {"senha": "111", "perfil": "aluna"},
+    "dudu": {"senha": "222", "perfil": "professor"},
+    "admin": {"senha": "123", "perfil": "administrador"}
+}
 
 @app.route('/', methods=['GET', 'POST'])
 def login():
@@ -12,27 +16,29 @@ def login():
     if request.method == "POST":
         usuario = request.form['username']
         senha = request.form['password']
-        if usuario == USUARIO_CADASTRADO and senha == SENHA_CADASTRADA:
-            resposta = make_response(redirect(url_for('bemvindo')))
-            resposta.set_cookie('username', usuario, max_age=60*10)
-            return resposta
+
+        if usuario in USUARIOS and senha == USUARIOS[usuario]["senha"]:
+            session["usuario"] = usuario     
+            return redirect(url_for('bemvindo'))
         else:
-            mensagem = "Usuário ou senha inválidos. Tente novamente."
+            mensagem = "Usuário ou senha inválidos."
 
     return render_template('login.html', error=mensagem)
 
 @app.route('/bemvindo')
 def bemvindo():
-    username = request.cookies.get('username')
-    if not username:
+    if "usuario" not in session:
         return redirect(url_for('login'))
-    return render_template('bemvindo.html', user=username)
+
+    usuario = session["usuario"]
+    perfil = USUARIOS[usuario]["perfil"]
+
+    return render_template("bemvindo.html", user=usuario, perfil=perfil)
 
 @app.route('/logout')
 def logout():
-    resposta = make_response(redirect(url_for('login')))
-    resposta.set_cookie('username', '', expires=0)
-    return resposta
+    session.clear()  
+    return redirect(url_for('login'))
 
 if __name__ == '__main__':
     app.run(debug=True)

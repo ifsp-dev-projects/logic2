@@ -1,0 +1,90 @@
+1. Classe Círculo
+Deve ter:
+- Atributo: raio
+
+- Métodos:
+    calcular_area() → retorna π * raio²
+    calcular_perimetro() → retorna 2 * π * raio
+
+- Exercício:
+    Criar vários objetos Círculo com raios diferentes e imprimir área e perímetro de cada um.
+
+
+2. Classe Livro
+Deve ter:
+- Atributos: titulo, autor, num_paginas
+
+- Método:
+    detalhes() → imprime essas informações
+
+- Exercício:
+    Criar uma lista de livros e imprimir detalhes de cada um.
+
+
+
+Herança
+5. Animal, Cachorro e Gato
+
+* Animal:
+- Atributo: nome
+- Método: emitir_som() → som genérico
+
+* Cachorro (extends Animal):
+- emitir_som() → "Au au!"
+- latir() → "Woof woof!"
+
+* Gato (extends Animal):
+- Emitir_som() → "Miau!"
+- miar() → "Meow meow!"
+
+Exercício:
+Criar objetos de Cachorro e Gato e chamar:
+- emitir_som() → mostrar polimorfismo
+- latir() (cachorro)
+- miar() (gato)
+
+
+6. Veiculo, Carro e Moto
+
+* Veiculo:
+- Atributos: marca, modelo
+- Método: exibir_detalhes()
+- Carro (extends Veiculo):
+- Atributo: num_portas
+- Override de exibir_detalhes() → inclui nº de portas
+
+* Moto (extends Veiculo):
+- Atributo: cilindradas
+- Override de exibir_detalhes() → inclui cilindradas
+
+Exercício:
+Criar objetos de Carro e Moto e chamar exibir_detalhes() em cada um.
+
+
+
+Polimorfismo
+7. FormaGeometrica, Retangulo e Triangulo
+
+* FormaGeometrica (interface ou classe abstrata):
+
+Métodos abstratos:
+- calcular_area()
+- calcular_perimetro()
+- Retangulo:
+
+Atributos: base, altura
+
+Implementa os métodos área e perímetro
+
+* Triangulo:
+
+Atributos: lado1, lado2, lado3
+calcular_area() → fórmula de Heron
+calcular_perimetro()
+
+Exercício:
+Criar uma lista com Retângulos e Triângulos e, para cada item, chamar:
+- calcular_area()
+- calcular_perimetro()
+
+→ Demonstrando polimorfismo porque cada forma calcula de um jeito.
